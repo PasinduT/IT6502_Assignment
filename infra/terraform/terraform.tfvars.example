@@ -1,0 +1,7 @@
+azure_subscription_id = "00000000-0000-0000-0000-000000000000"
+project_name          = "lktaxassistant"
+environment           = "dev"
+location              = "southeastasia"
+container_image       = "ghcr.io/your-user/your-repository-api:latest"
+gemini_api_key        = "set-securely-and-never-commit-real-values"
+

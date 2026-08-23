@@ -1,0 +1,15 @@
+sources:
+  - id: replace-with-stable-source-id
+    type: tax_document
+    title: Replace with the official document title
+    file: ../raw/tax-documents/replace-with-approved-document.pdf
+    source_url: https://www.ird.gov.lk/
+    published_date: 2026-01-01
+    effective_from: 2026-04-01
+    effective_to:
+    tax_year: 2026/2027
+    document_version: "1"
+    jurisdiction: LK
+    tags:
+      - example
+

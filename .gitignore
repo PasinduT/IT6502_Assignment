@@ -1,0 +1,68 @@
+# Operating systems and editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+
+# Logs and temporary files
+*.log
+*.pid
+*.tmp
+.cache/
+
+# Python / uv
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+*.egg-info/
+.eggs/
+build/
+
+# JavaScript / TypeScript / pnpm
+node_modules/
+.pnpm-store/
+dist/
+coverage/ .vite/
+.eslintcache
+*.tsbuildinfo
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+!terraform.tfvars.example
+*.tfplan
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+crash.log
+crash.*.log
+.terraform.tfstate.lock.info
+
+# Local source documents and generated ingestion output
+data/raw/
+data/processed/*
+!data/processed/.gitkeep
+
+requirements.md
+AGENTS.md

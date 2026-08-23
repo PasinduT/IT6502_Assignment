@@ -1,0 +1,12 @@
+workflow_id: example-find-return
+title: Example — Find a return
+jurisdiction: LK
+review_status: draft
+portal_version: replace-after-review
+tags:
+  - returns
+steps:
+  - Replace this example with a step verified from sanitized development material.
+notes:
+  - Set review_status to approved only after a human review.
+
