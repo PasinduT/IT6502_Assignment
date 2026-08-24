@@ -3,6 +3,7 @@ from google.genai import types
 
 from app.config import Settings
 from app.errors import AppError
+from app.services.gemini_errors import translate_gemini_error
 
 
 class EmbeddingService:
@@ -32,6 +33,8 @@ class EmbeddingService:
         except AppError:
             raise
         except Exception as exc:
-            raise AppError(
-                "EMBEDDING_ERROR", "The assistant could not process this question.", 503
+            raise translate_gemini_error(
+                exc,
+                "EMBEDDING_ERROR",
+                "The assistant could not process this question.",
             ) from exc

@@ -3,6 +3,7 @@ from google.genai import types
 
 from app.config import Settings
 from app.errors import AppError
+from app.services.gemini_errors import translate_gemini_error
 
 
 class GeminiService:
@@ -33,6 +34,8 @@ class GeminiService:
         except AppError:
             raise
         except Exception as exc:
-            raise AppError(
-                "UPSTREAM_MODEL_ERROR", "The assistant is temporarily unavailable.", 503
+            raise translate_gemini_error(
+                exc,
+                "UPSTREAM_MODEL_ERROR",
+                "The assistant is temporarily unavailable.",
             ) from exc

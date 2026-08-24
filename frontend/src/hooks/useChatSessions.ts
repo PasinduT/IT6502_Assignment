@@ -1,6 +1,24 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { createSession, loadSessions, saveSessions } from "../lib/chatStorage";
 import type { ChatMessage, ChatSession } from "../types/chat";
+
+const SESSION_PATH = /^\/chat\/([^/]+)\/?$/;
+
+function sessionIdFromUrl(): string | null {
+  const match = window.location.pathname.match(SESSION_PATH);
+  return match?.[1] ?? null;
+}
+
+function subscribeToUrl(onChange: () => void) {
+  window.addEventListener("popstate", onChange);
+  return () => window.removeEventListener("popstate", onChange);
+}
+
+function navigateToSession(id: string, replace = false) {
+  const path = `/chat/${id}${window.location.search}${window.location.hash}`;
+  window.history[replace ? "replaceState" : "pushState"]({}, "", path);
+  window.dispatchEvent(new PopStateEvent("popstate"));
+}
 
 function initialState(): ChatSession[] {
   const stored = loadSessions();
@@ -9,17 +27,27 @@ function initialState(): ChatSession[] {
 
 export function useChatSessions() {
   const [sessions, setSessions] = useState<ChatSession[]>(initialState);
-  const [activeId, setActiveId] = useState(() => sessions[0].id);
+  const requestedId = useSyncExternalStore(subscribeToUrl, sessionIdFromUrl, () => null);
+  const activeSession = sessions.find((session) => session.id === requestedId) ?? sessions[0];
+  const activeId = activeSession.id;
 
-  useEffect(() => saveSessions(sessions), [sessions]);
+  useEffect(() => {
+    saveSessions(sessions);
+  }, [sessions]);
 
-  const activeSession = sessions.find((session) => session.id === activeId) ?? sessions[0];
+  useEffect(() => {
+    if (requestedId !== activeSession.id) navigateToSession(activeSession.id, true);
+  }, [activeSession.id, requestedId]);
 
   function newSession() {
     const session = createSession();
     setSessions((current) => [session, ...current]);
-    setActiveId(session.id);
+    navigateToSession(session.id);
     return session.id;
+  }
+
+  function setActiveId(id: string) {
+    if (sessions.some((session) => session.id === id)) navigateToSession(id);
   }
 
   function updateSession(id: string, update: Partial<ChatSession>) {
@@ -51,17 +79,17 @@ export function useChatSessions() {
     if (!remaining.length) {
       const replacement = createSession();
       setSessions([replacement]);
-      setActiveId(replacement.id);
+      navigateToSession(replacement.id, true);
       return;
     }
     setSessions(remaining);
-    if (activeId === id) setActiveId(remaining[0].id);
+    if (activeId === id) navigateToSession(remaining[0].id, true);
   }
 
   function clearAll() {
     const replacement = createSession();
     setSessions([replacement]);
-    setActiveId(replacement.id);
+    navigateToSession(replacement.id, true);
   }
 
   return {

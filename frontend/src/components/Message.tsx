@@ -2,6 +2,36 @@ import { Check, Copy, ExternalLink } from "lucide-react";
 import { useState } from "react";
 import type { ChatMessage } from "../types/chat";
 
+const MARKDOWN_IMAGE = /!\[([^\]]*)\]\((https:\/\/[^\s)]+)\)/g;
+
+function AssistantContent({ content }: { content: string }) {
+  const parts = [];
+  let cursor = 0;
+
+  for (const match of content.matchAll(MARKDOWN_IMAGE)) {
+    const index = match.index;
+    if (index > cursor) {
+      parts.push(<span key={`text-${cursor}`}>{content.slice(cursor, index)}</span>);
+    }
+    parts.push(
+      <img
+        key={`image-${index}`}
+        alt={match[1] || "Tax information illustration"}
+        className="my-3 max-h-[28rem] w-auto max-w-full rounded-xl border border-slate-200 object-contain"
+        loading="lazy"
+        referrerPolicy="no-referrer"
+        src={match[2]}
+      />,
+    );
+    cursor = index + match[0].length;
+  }
+
+  if (cursor < content.length) {
+    parts.push(<span key={`text-${cursor}`}>{content.slice(cursor)}</span>);
+  }
+  return <div className="whitespace-pre-wrap">{parts}</div>;
+}
+
 export function Message({ message }: { message: ChatMessage }) {
   const [copied, setCopied] = useState(false);
   const assistant = message.role === "assistant";
@@ -21,7 +51,11 @@ export function Message({ message }: { message: ChatMessage }) {
             : "bg-leaf text-white"
         }`}
       >
-        <div className="whitespace-pre-wrap">{message.content}</div>
+        {assistant ? (
+          <AssistantContent content={message.content} />
+        ) : (
+          <div className="whitespace-pre-wrap">{message.content}</div>
+        )}
         {assistant && message.citations && message.citations.length > 0 && (
           <div className="mt-4 border-t border-slate-200 pt-3">
             <p className="mb-2 text-xs font-bold uppercase tracking-wider text-slate-500">Sources</p>
@@ -73,4 +107,3 @@ export function Message({ message }: { message: ChatMessage }) {
     </article>
   );
 }
-

@@ -21,7 +21,9 @@ export default function App() {
   const [error, setError] = useState<string | null>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => bottomRef.current?.scrollIntoView({ behavior: "smooth" }), [chats.activeSession.messages, loading]);
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: "smooth" })
+  }, [chats.activeSession.messages, loading]);
 
   async function submit(question: string, retry = false) {
     if (loading) return;

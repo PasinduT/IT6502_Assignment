@@ -8,7 +8,6 @@ from azure.search.documents.models import VectorizedQuery
 from app.config import Settings
 from app.errors import AppError
 from app.services.models import SearchChunk
-from app.services.scope import QueryScope
 
 SELECT_FIELDS = [
     "id",
@@ -58,13 +57,9 @@ class SearchService:
         return self._client
 
     async def search(
-        self, question: str, vector: list[float], scope: QueryScope, tax_year: str | None
+        self, question: str, vector: list[float], tax_year: str | None
     ) -> list[SearchChunk]:
         filters: list[str] = []
-        if scope == QueryScope.PORTAL:
-            filters.append("content_type eq 'portal_guide'")
-        elif scope == QueryScope.TAX:
-            filters.append("content_type eq 'tax_document'")
         if tax_year:
             safe_year = tax_year.replace("'", "''")
             filters.append(f"(tax_year eq null or tax_year eq '{safe_year}')")

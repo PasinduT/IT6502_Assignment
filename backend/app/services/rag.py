@@ -8,16 +8,9 @@ from app.schemas import ChatMessage, ChatResponse, Citation
 from app.services.embeddings import EmbeddingService
 from app.services.gemini import GeminiService
 from app.services.models import SearchChunk
-from app.services.scope import QueryScope, classify_scope, extract_tax_year
+from app.services.query import extract_tax_year
 from app.services.search import SearchService
 
-OUT_OF_SCOPE = (
-    "I can only help with Sri Lankan taxation and navigation of the Sri Lankan tax portal."
-)
-INSUFFICIENT = (
-    "I could not find enough information in the available Sri Lankan tax sources "
-    "to answer this reliably."
-)
 SOURCE_MARKER = re.compile(r"\[SOURCE_(\d+)]")
 
 
@@ -48,7 +41,8 @@ def build_context(chunks: Sequence[SearchChunk]) -> tuple[str, dict[str, SearchC
 def build_user_prompt(messages: Sequence[ChatMessage], context: str) -> str:
     history = "\n".join(f"{item.role.upper()}: {item.content}" for item in messages)
     return (
-        f"RETRIEVED EVIDENCE:\n{context}\n\nCONVERSATION:\n{history}\n\n"
+        f"RETRIEVED EVIDENCE:\n{context or '(none retrieved)'}\n\n"
+        f"CONVERSATION:\n{history}\n\n"
         "Answer the latest user question."
     )
 
@@ -91,9 +85,6 @@ class RagService:
 
     async def answer(self, messages: list[ChatMessage]) -> ChatResponse:
         question = messages[-1].content
-        scope = classify_scope(question)
-        if scope == QueryScope.OUT_OF_SCOPE:
-            return ChatResponse(answer=OUT_OF_SCOPE)
         if not self.settings.providers_configured:
             raise AppError(
                 "SERVICE_NOT_CONFIGURED",
@@ -101,9 +92,7 @@ class RagService:
                 503,
             )
         vector = await self.embeddings.embed_query(question)
-        chunks = await self.search.search(question, vector, scope, extract_tax_year(question))
-        if not chunks:
-            return ChatResponse(answer=INSUFFICIENT)
+        chunks = await self.search.search(question, vector, extract_tax_year(question))
         context, mapping = build_context(chunks)
         recent_messages = messages[-self.settings.max_history_messages :]
         answer = await self.gemini.generate(

@@ -1,6 +1,6 @@
 # Sri Lanka Tax Assistant
 
-A text-only, retrieval-augmented web assistant for Sri Lankan tax questions and Sri Lankan tax-portal navigation. It is intentionally evidence-bound: substantive answers are generated only from an approved Sri Lanka corpus and expose the sources used.
+A retrieval-augmented web assistant for Sri Lankan tax questions and Sri Lankan tax-portal navigation. It is intentionally evidence-bound: substantive answers are generated only from an approved Sri Lanka corpus and expose the sources used.
 
 > Status: the application, provider integrations, ingestion pipeline, tests, Docker image, and Terraform infrastructure are scaffolded. A deployment needs approved source documents plus Gemini and Azure credentials; sample metadata is deliberately not tax content.
 
@@ -14,15 +14,16 @@ The assistant provides informational guidance, not professional tax advice. User
 
 - Ask natural-language questions about Sri Lankan taxation.
 - Ask how to navigate supported workflows in the Sri Lankan tax portal.
+- View relevant public images included by the assistant from retrieved sources.
 - Continue a conversation with a bounded recent history.
 - Inspect and open citations returned with an answer.
 - Keep multiple conversations locally without an account.
 
-The runtime does not accept files, screenshots, images, audio, or video. Development screenshots must first be sanitized, converted to text, reviewed, and approved. Foreign tax questions and unrelated requests are refused.
+The runtime does not accept or inspect files, screenshots, images, audio, or video. Assistant responses can display a public image referenced by retrieved evidence. Development screenshots must first be sanitized, converted to text, reviewed, and approved. The model decides whether to refuse foreign tax questions and unrelated requests.
 
 ## Solution overview
 
-The FastAPI service classifies the latest question, embeds it, and runs hybrid keyword/vector retrieval over Azure AI Search. Relevant chunks are provided to Gemini as untrusted evidence with stable source markers. Only marker IDs present in that evidence can become response citations. Low-relevance searches return an insufficient-evidence response without calling the generation model.
+The FastAPI service embeds the latest question and runs hybrid keyword/vector retrieval over Azure AI Search. Relevant chunks are provided to Gemini as untrusted evidence with stable source markers. Gemini determines the request scope and whether the evidence is sufficient, including when retrieval returns no chunks. Only marker IDs present in the evidence can become response citations.
 
 ```mermaid
 flowchart LR
@@ -83,7 +84,7 @@ cp .env.example .env
 uv run uvicorn app.main:app --reload --port 8000
 ```
 
-`GET http://localhost:8000/api/health` works without provider credentials. In-scope chat calls return `SERVICE_NOT_CONFIGURED` until the Gemini and Azure Search values are set. Out-of-scope requests are still safely refused locally.
+`GET http://localhost:8000/api/health` works without provider credentials. Chat calls return `SERVICE_NOT_CONFIGURED` until the Gemini and Azure Search values are set, including requests the model would determine are out of scope.
 
 Run checks:
 
@@ -120,7 +121,10 @@ curl -X POST http://localhost:8000/api/chat \
   -d '{"messages":[{"role":"user","content":"What do the approved sources say about VAT?"}]}'
 ```
 
-Success responses contain `answer` and `citations`; there is no image field. Errors use a stable `{ "error": { "code", "message" } }` shape and do not expose provider internals.
+Success responses contain `answer` and `citations`; images are represented in `answer` with Markdown rather than a separate image field. Errors use a stable `{ "error": { "code", "message" } }` shape and do not expose provider internals.
+
+When Gemini returns HTTP 429 after exhausting a request, token, or daily quota, the API
+returns `GEMINI_USAGE_LIMIT` with a user-facing message asking the user to try again later.
 
 ## Dataset and knowledge ingestion
 
@@ -146,13 +150,12 @@ Screenshots are development inputs only. Remove names, TINs, credentials, tokens
 
 ## AI/RAG behavior
 
-1. A lightweight classifier distinguishes tax, portal, mixed, and unsupported questions.
-2. A year such as `2025/26` is normalized and used to prioritize/filter applicable metadata.
-3. Gemini creates a `RETRIEVAL_QUERY` vector.
-4. Azure AI Search combines that vector with keyword search and optional type/year filters.
-5. Chunks below `RAG_MIN_SCORE` are removed and duplicate evidence is collapsed.
-6. Gemini receives only recent messages and selected text evidence.
-7. Generated `[SOURCE_n]` markers are mapped to structured citations; unknown markers are dropped.
+1. A year such as `2025/26` is normalized and used to prioritize/filter applicable metadata.
+2. Gemini creates a `RETRIEVAL_QUERY` vector.
+3. Azure AI Search combines that vector with keyword search and an optional year filter across both tax documents and portal guides.
+4. Chunks below `RAG_MIN_SCORE` are removed and duplicate evidence is collapsed.
+5. Gemini receives recent messages and the selected text evidence, then determines request scope and the most suitable answer format.
+6. Generated `[SOURCE_n]` markers are mapped to structured citations; unknown markers are dropped.
 
 The initial evaluation questions in [evaluation/rag_questions.json](evaluation/rag_questions.json) cover normal, year-sensitive, portal, foreign, unsupported, and prompt-injection cases. Expected source IDs should be filled after the real corpus is approved. Calibrate `RAG_MIN_SCORE` against this set rather than treating the default as production-ready.
 
@@ -218,7 +221,7 @@ CI currently validates both applications and Terraform. Application deployment c
 ## Known limitations
 
 - No authoritative corpus is distributed with this repository yet, so real tax answers require a separately approved dataset.
-- The heuristic scope classifier should be evaluated and expanded for Sri Lankan terminology.
+- Model-based scope decisions require evaluation against Sri Lankan terminology, foreign-tax questions, unrelated requests, and prompt injection.
 - `RAG_MIN_SCORE` requires corpus-specific calibration.
 - PDF extraction does not perform OCR and may need document-specific header/footer cleanup.
 - Citation markers unsupported by retrieved evidence are removed, but generated prose still requires groundedness evaluation.

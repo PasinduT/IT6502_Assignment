@@ -1,8 +1,10 @@
 from datetime import date
 
+from app.config import Settings
+from app.schemas import ChatMessage
 from app.services.models import SearchChunk
-from app.services.rag import build_context, map_citations
-from app.services.scope import QueryScope, classify_scope, extract_tax_year
+from app.services.query import extract_tax_year
+from app.services.rag import RagService, build_context, map_citations
 
 
 def chunk(**overrides):
@@ -22,12 +24,6 @@ def chunk(**overrides):
     return SearchChunk(**values)
 
 
-def test_scope_classification():
-    assert classify_scope("What is VAT in Sri Lanka?") == QueryScope.TAX
-    assert classify_scope("Where do I click in the tax portal?") == QueryScope.MIXED
-    assert classify_scope("Write a poem") == QueryScope.OUT_OF_SCOPE
-
-
 def test_tax_year_extraction():
     assert extract_tax_year("For 2025/26, what applies?") == "2025/2026"
     assert extract_tax_year("Rules in 2024") == "2024"
@@ -45,3 +41,32 @@ def test_citations_include_only_known_referenced_markers():
     assert len(citations) == 1
     assert citations[0].title == "VAT Act"
     assert citations[0].page == 12
+
+
+async def test_model_determines_scope_even_without_retrieved_evidence():
+    class FakeEmbeddings:
+        async def embed_query(self, question):
+            assert question == "Write a poem"
+            return [0.1]
+
+    class FakeSearch:
+        async def search(self, question, vector, tax_year):
+            assert (question, vector, tax_year) == ("Write a poem", [0.1], None)
+            return []
+
+    class FakeGemini:
+        async def generate(self, system_prompt, prompt):
+            assert "Determine from the conversation" in system_prompt
+            assert "RETRIEVED EVIDENCE:\n(none retrieved)" in prompt
+            return "I can only help with Sri Lankan tax questions."
+
+    settings = Settings(
+        gemini_api_key="test-key",
+        azure_search_endpoint="https://example.search.windows.net",
+        azure_search_key="test-key",
+    )
+    service = RagService(settings, FakeEmbeddings(), FakeSearch(), FakeGemini())
+
+    response = await service.answer([ChatMessage(role="user", content="Write a poem")])
+
+    assert response.answer == "I can only help with Sri Lankan tax questions."
