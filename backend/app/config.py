@@ -12,8 +12,10 @@ class Settings(BaseSettings):
 
     environment: Literal["development", "test", "production"] = "development"
     gemini_api_key: str = ""
-    gemini_model: str = "gemini-3.7-flash"
+    gemini_model: str = "gemini-3.5-flash-lite"
     gemini_embedding_model: str = "gemini-embedding-2"
+    gemini_timeout_seconds: int = Field(default=10, ge=1, le=120)
+    gemini_max_output_tokens: int = Field(default=1024, ge=64, le=8192)
     embedding_dimensions: int = Field(default=768, ge=1, le=3072)
     azure_search_endpoint: str = ""
     azure_search_index: str = "tax-assistant"
@@ -40,7 +42,15 @@ class Settings(BaseSettings):
 
     @property
     def providers_configured(self) -> bool:
-        return bool(self.gemini_api_key and self.azure_search_endpoint and self.azure_search_key)
+        return self.gemini_configured and self.search_configured
+
+    @property
+    def gemini_configured(self) -> bool:
+        return bool(self.gemini_api_key)
+
+    @property
+    def search_configured(self) -> bool:
+        return bool(self.azure_search_endpoint and self.azure_search_key)
 
 
 @lru_cache

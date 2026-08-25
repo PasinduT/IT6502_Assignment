@@ -14,7 +14,13 @@ class GeminiService:
     @property
     def client(self) -> genai.Client:
         if self._client is None:
-            self._client = genai.Client(api_key=self.settings.gemini_api_key)
+            self._client = genai.Client(
+                api_key=self.settings.gemini_api_key,
+                http_options=types.HttpOptions(
+                    timeout=self.settings.gemini_timeout_seconds * 1000,
+                    retry_options=types.HttpRetryOptions(attempts=1),
+                ),
+            )
         return self._client
 
     async def generate(self, system_prompt: str, prompt: str) -> str:
@@ -25,7 +31,9 @@ class GeminiService:
                 config=types.GenerateContentConfig(
                     system_instruction=system_prompt,
                     temperature=0.1,
+                    max_output_tokens=self.settings.gemini_max_output_tokens,
                     response_modalities=["TEXT"],
+                    thinking_config=types.ThinkingConfig(thinking_level="minimal"),
                 ),
             )
             if not response.text:

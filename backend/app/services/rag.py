@@ -3,7 +3,7 @@ from collections.abc import Sequence
 
 from app.config import Settings
 from app.errors import AppError
-from app.prompts.system_prompt import SYSTEM_PROMPT
+from app.prompts.system_prompt import MODEL_KNOWLEDGE_SYSTEM_PROMPT, SYSTEM_PROMPT
 from app.schemas import ChatMessage, ChatResponse, Citation
 from app.services.embeddings import EmbeddingService
 from app.services.gemini import GeminiService
@@ -47,6 +47,16 @@ def build_user_prompt(messages: Sequence[ChatMessage], context: str) -> str:
     )
 
 
+def build_model_knowledge_prompt(messages: Sequence[ChatMessage]) -> str:
+    history = "\n".join(f"{item.role.upper()}: {item.content}" for item in messages)
+    return (
+        "RETRIEVAL STATUS: The application's knowledge base is not configured. "
+        "Use model knowledge according to the system instructions.\n\n"
+        f"CONVERSATION:\n{history}\n\n"
+        "Answer the latest user question."
+    )
+
+
 def map_citations(answer: str, mapping: dict[str, SearchChunk]) -> list[Citation]:
     citation_ids = list(dict.fromkeys(SOURCE_MARKER.findall(answer)))
     citations: list[Citation] = []
@@ -85,17 +95,24 @@ class RagService:
 
     async def answer(self, messages: list[ChatMessage]) -> ChatResponse:
         question = messages[-1].content
-        if not self.settings.providers_configured:
+        if not self.settings.gemini_configured:
             raise AppError(
                 "SERVICE_NOT_CONFIGURED",
-                "The assistant has not been connected to its knowledge base yet.",
+                "The assistant has not been connected to Gemini yet.",
                 503,
             )
-        vector = await self.embeddings.embed_query(question)
-        chunks = await self.search.search(question, vector, extract_tax_year(question))
-        context, mapping = build_context(chunks)
         recent_messages = messages[-self.settings.max_history_messages :]
-        answer = await self.gemini.generate(
-            SYSTEM_PROMPT, build_user_prompt(recent_messages, context)
-        )
+
+        if self.settings.search_configured:
+            vector = await self.embeddings.embed_query(question)
+            chunks = await self.search.search(question, vector, extract_tax_year(question))
+            context, mapping = build_context(chunks)
+            system_prompt = SYSTEM_PROMPT
+            user_prompt = build_user_prompt(recent_messages, context)
+        else:
+            mapping = {}
+            system_prompt = MODEL_KNOWLEDGE_SYSTEM_PROMPT
+            user_prompt = build_model_knowledge_prompt(recent_messages)
+
+        answer = await self.gemini.generate(system_prompt, user_prompt)
         return ChatResponse(answer=answer, citations=map_citations(answer, mapping))

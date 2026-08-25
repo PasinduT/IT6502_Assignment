@@ -1,8 +1,8 @@
 # Sri Lanka Tax Assistant
 
-A retrieval-augmented web assistant for Sri Lankan tax questions and Sri Lankan tax-portal navigation. It is intentionally evidence-bound: substantive answers are generated only from an approved Sri Lanka corpus and expose the sources used.
+A web assistant for Sri Lankan tax questions and Sri Lankan tax-portal navigation. With Azure AI Search configured it uses retrieval-augmented generation over an approved corpus and exposes the sources used. It can also run in an ungrounded Gemini-only mode for local testing.
 
-> Status: the application, provider integrations, ingestion pipeline, tests, Docker image, and Terraform infrastructure are scaffolded. A deployment needs approved source documents plus Gemini and Azure credentials; sample metadata is deliberately not tax content.
+> Status: the application, provider integrations, ingestion pipeline, tests, Docker image, and Terraform infrastructure are scaffolded. A grounded deployment needs approved source documents plus Gemini and Azure credentials; sample metadata is deliberately not tax content.
 
 ## Problem statement
 
@@ -31,7 +31,7 @@ flowchart LR
     API --> Embed[Gemini Embedding 2]
     Embed --> Search[Azure AI Search]
     Search --> API
-    API --> LLM[Gemini 3.7 Flash]
+    API --> LLM[Gemini 3.5 Flash-Lite]
     Blob[Azure Blob Storage] -. source retention .-> Search
 
     PDFs[Approved PDFs] --> Ingest[Offline ingestion scripts]
@@ -48,7 +48,7 @@ Chat data never enters an application database; it stays in browser `localStorag
 |---|---|
 | Frontend | React, TypeScript, Vite, Tailwind CSS |
 | API | Python, FastAPI, Pydantic |
-| Generation | Configurable Gemini model (`gemini-3.7-flash` initially) |
+| Generation | Configurable Gemini model (`gemini-3.5-flash-lite` initially) |
 | Embeddings | Configurable Gemini embedding model (`gemini-embedding-2` initially) |
 | Retrieval | Azure AI Search hybrid vector/keyword search |
 | Source retention | Private Azure Blob Storage container |
@@ -73,7 +73,7 @@ infra/terraform/     Azure infrastructure
 
 ## Local setup
 
-Prerequisites: Node.js 22+, Python 3.11+, and an Azure AI Search service if testing real retrieval.
+Prerequisites: Node.js 22+, Python 3.11+, a Gemini API key, and an Azure AI Search service only if testing real retrieval.
 
 ### Backend
 
@@ -84,7 +84,7 @@ cp .env.example .env
 uv run uvicorn app.main:app --reload --port 8000
 ```
 
-`GET http://localhost:8000/api/health` works without provider credentials. Chat calls return `SERVICE_NOT_CONFIGURED` until the Gemini and Azure Search values are set, including requests the model would determine are out of scope.
+`GET http://localhost:8000/api/health` works without provider credentials. Chat requires `GEMINI_API_KEY`; when the Azure Search endpoint or key is absent, it skips embedding and retrieval and answers from Gemini's model knowledge. This fallback returns no citations and its tax facts may be incomplete or outdated. Set both `AZURE_SEARCH_ENDPOINT` and `AZURE_SEARCH_KEY` to enable grounded RAG responses.
 
 Run checks:
 
@@ -149,6 +149,10 @@ The PDF pipeline preserves page boundaries and manifest dates, creates overlappi
 Screenshots are development inputs only. Remove names, TINs, credentials, tokens, account details, and other confidential data before inspection. Convert each workflow into YAML matching [data/sample/portal-guide.example.yaml](data/sample/portal-guide.example.yaml), manually verify every step, then set `review_status: approved`. The ingestion script rejects drafts and non-LK guides. Images and image paths are never indexed.
 
 ## AI/RAG behavior
+
+When Azure AI Search is not configured, the backend bypasses steps 1–4 below and asks
+Gemini to answer from model knowledge. This mode is intended for local testing, is not
+grounded in the approved corpus, and returns an empty `citations` list.
 
 1. A year such as `2025/26` is normalized and used to prioritize/filter applicable metadata.
 2. Gemini creates a `RETRIEVAL_QUERY` vector.
@@ -221,6 +225,7 @@ CI currently validates both applications and Terraform. Application deployment c
 ## Known limitations
 
 - No authoritative corpus is distributed with this repository yet, so real tax answers require a separately approved dataset.
+- Gemini-only answers are ungrounded and may be incomplete or outdated; use RAG and official sources for decisions that require accuracy.
 - Model-based scope decisions require evaluation against Sri Lankan terminology, foreign-tax questions, unrelated requests, and prompt injection.
 - `RAG_MIN_SCORE` requires corpus-specific calibration.
 - PDF extraction does not perform OCR and may need document-specific header/footer cleanup.
