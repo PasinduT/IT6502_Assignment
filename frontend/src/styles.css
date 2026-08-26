@@ -9,3 +9,14 @@ body { margin: 0; min-width: 320px; min-height: 100vh; }
 button, textarea { font: inherit; }
 button { cursor: pointer; }
 
+.markdown-content :not(pre) > code {
+  border-radius: 0.375rem;
+  background: rgb(241 245 249);
+  padding: 0.125rem 0.375rem;
+  color: rgb(15 23 42);
+  font-size: 0.875em;
+}
+
+.markdown-content li > input[type="checkbox"] {
+  margin-right: 0.5rem;
+}

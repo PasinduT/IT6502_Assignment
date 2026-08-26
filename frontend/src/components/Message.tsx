@@ -1,35 +1,120 @@
 import { Check, Copy, ExternalLink } from "lucide-react";
 import { useState } from "react";
+import ReactMarkdown, { defaultUrlTransform } from "react-markdown";
+import remarkGfm from "remark-gfm";
 import type { ChatMessage } from "../types/chat";
 
-const MARKDOWN_IMAGE = /!\[([^\]]*)\]\((https:\/\/[^\s)]+)\)/g;
-
 function AssistantContent({ content }: { content: string }) {
-  const parts = [];
-  let cursor = 0;
+  return (
+    <div className="markdown-content">
+      <ReactMarkdown
+        remarkPlugins={[remarkGfm]}
+        urlTransform={(url, key) =>
+          // Preserve image URLs for the renderer below, which only creates an
+          // element for HTTPS sources. Other URL-bearing elements use the
+          // library's safe protocol allowlist.
+          key === "src" ? url : defaultUrlTransform(url)
+        }
+        components={{
+          a: ({ children, href, ...props }) =>
+            href ? (
+              <a
+                {...props}
+                className="font-medium text-leaf underline decoration-leaf/30 underline-offset-2 hover:decoration-leaf"
+                href={href}
+                rel="noreferrer"
+                target={href.startsWith("#") ? undefined : "_blank"}
+              >
+                {children}
+              </a>
+            ) : (
+              <>{children}</>
+            ),
+          blockquote: ({ children, ...props }) => (
+            <blockquote
+              {...props}
+              className="my-3 border-l-4 border-emerald-200 pl-4 italic text-slate-600"
+            >
+              {children}
+            </blockquote>
+          ),
+          h1: ({ children, ...props }) => (
+            <h1 {...props} className="mb-3 mt-5 text-xl font-bold leading-7 first:mt-0">
+              {children}
+            </h1>
+          ),
+          h2: ({ children, ...props }) => (
+            <h2 {...props} className="mb-2 mt-5 text-lg font-bold leading-7 first:mt-0">
+              {children}
+            </h2>
+          ),
+          h3: ({ children, ...props }) => (
+            <h3 {...props} className="mb-2 mt-4 font-bold first:mt-0">
+              {children}
+            </h3>
+          ),
+          img: ({ alt, src, ...props }) => {
+            if (!src || !/^https:\/\//i.test(src)) {
+              return <span>{`![${alt ?? ""}](${src ?? ""})`}</span>;
+            }
 
-  for (const match of content.matchAll(MARKDOWN_IMAGE)) {
-    const index = match.index;
-    if (index > cursor) {
-      parts.push(<span key={`text-${cursor}`}>{content.slice(cursor, index)}</span>);
-    }
-    parts.push(
-      <img
-        key={`image-${index}`}
-        alt={match[1] || "Tax information illustration"}
-        className="my-3 max-h-[28rem] w-auto max-w-full rounded-xl border border-slate-200 object-contain"
-        loading="lazy"
-        referrerPolicy="no-referrer"
-        src={match[2]}
-      />,
-    );
-    cursor = index + match[0].length;
-  }
-
-  if (cursor < content.length) {
-    parts.push(<span key={`text-${cursor}`}>{content.slice(cursor)}</span>);
-  }
-  return <div className="whitespace-pre-wrap">{parts}</div>;
+            return (
+              <img
+                {...props}
+                alt={alt || "Tax information illustration"}
+                className="my-3 max-h-[28rem] w-auto max-w-full rounded-xl border border-slate-200 object-contain"
+                loading="lazy"
+                referrerPolicy="no-referrer"
+                src={src}
+              />
+            );
+          },
+          ol: ({ children, ...props }) => (
+            <ol {...props} className="my-3 list-decimal space-y-1 pl-6">
+              {children}
+            </ol>
+          ),
+          p: ({ children, ...props }) => (
+            <p {...props} className="mb-3 last:mb-0">
+              {children}
+            </p>
+          ),
+          pre: ({ children, ...props }) => (
+            <pre
+              {...props}
+              className="my-3 max-w-full overflow-x-auto rounded-xl bg-slate-900 p-4 text-sm leading-6 text-slate-100"
+            >
+              {children}
+            </pre>
+          ),
+          table: ({ children, ...props }) => (
+            <div className="my-3 overflow-x-auto rounded-lg border border-slate-200">
+              <table {...props} className="w-full border-collapse text-left text-sm">
+                {children}
+              </table>
+            </div>
+          ),
+          th: ({ children, ...props }) => (
+            <th {...props} className="border-b border-slate-200 bg-slate-50 px-3 py-2 font-semibold">
+              {children}
+            </th>
+          ),
+          td: ({ children, ...props }) => (
+            <td {...props} className="border-b border-slate-100 px-3 py-2 align-top last:border-b-0">
+              {children}
+            </td>
+          ),
+          ul: ({ children, ...props }) => (
+            <ul {...props} className="my-3 list-disc space-y-1 pl-6">
+              {children}
+            </ul>
+          ),
+        }}
+      >
+        {content}
+      </ReactMarkdown>
+    </div>
+  );
 }
 
 export function Message({ message }: { message: ChatMessage }) {
