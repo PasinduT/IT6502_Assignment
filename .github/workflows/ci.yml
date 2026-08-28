@@ -1,82 +1,36 @@
-name: CI
+name: Deploy
 
 on:
   push:
-  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
 
 jobs:
-  backend:
+  build-image:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.13"
-      - uses: astral-sh/setup-uv@v6
-        with:
-          enable-cache: true
-          cache-dependency-glob: backend/uv.lock
-      - run: uv sync --dev --frozen
-        working-directory: backend
-      - run: uv run ruff check .
-        working-directory: backend
-      - run: uv run pytest
-        working-directory: backend
-
-  frontend:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 11.20.0
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "22"
-          cache: pnpm
-          cache-dependency-path: frontend/pnpm-lock.yaml
-      - run: pnpm install --frozen-lockfile
-        working-directory: frontend
-      - run: pnpm test
-        working-directory: frontend
-      - run: pnpm build
-        working-directory: frontend
-
-  terraform:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: hashicorp/setup-terraform@v3
-      - run: terraform fmt -check -recursive
-      - run: terraform init -backend=false
-        working-directory: infra/terraform
-      - run: terraform validate
-        working-directory: infra/terraform
-
-  deploy-backend:
-    needs:
-      - backend
-      - frontend
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-
     permissions:
       contents: read
       packages: write
-      id-token: write
-
+    outputs:
+      image: ${{ steps.image.outputs.image }}
     env:
-      IMAGE_NAME: ghcr.io/pasindut/it6502-assignment-api
       IMAGE_TAG: sha-${{ github.sha }}
-      AZURE_RESOURCE_GROUP: ${{ vars.AZURE_RESOURCE_GROUP }}
-      AZURE_CONTAINER_APP_NAME: ${{ vars.AZURE_CONTAINER_APP_NAME }}
-
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+      - name: Record immutable image reference
+        id: image
+        run: |
+          OWNER=$(printf '%s' "$GITHUB_REPOSITORY_OWNER" | tr '[:upper:]' '[:lower:]')
+          REPOSITORY=$(printf '%s' "${GITHUB_REPOSITORY#*/}" | tr '[:upper:]' '[:lower:]')
+          PACKAGE="${REPOSITORY}-api"
+          echo "image=ghcr.io/${OWNER}/${PACKAGE}:${IMAGE_TAG}" >> "$GITHUB_OUTPUT"
+          echo "package=${PACKAGE}" >> "$GITHUB_OUTPUT"
+
+      - uses: docker/setup-buildx-action@v3
 
       - name: Sign in to GHCR
         uses: docker/login-action@v3
@@ -92,86 +46,192 @@ jobs:
           file: ./backend/Dockerfile
           platforms: linux/amd64
           push: true
-          tags: |
-            ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
-            ${{ env.IMAGE_NAME }}:latest
+          tags: ${{ steps.image.outputs.image }}
           labels: |
-            org.opencontainers.image.source=https://github.com/PasinduT/IT6502_Assignment
+            org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}
             org.opencontainers.image.revision=${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-      - name: Sign in to Azure
+      - name: Ensure the GHCR image is public
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OWNER_TYPE: ${{ github.event.repository.owner.type }}
+          IMAGE_PACKAGE: ${{ steps.image.outputs.package }}
+        run: |
+          if [ "$OWNER_TYPE" = "Organization" ]; then
+            gh api --method PATCH "/orgs/${GITHUB_REPOSITORY_OWNER}/packages/container/${IMAGE_PACKAGE}" -f visibility=public
+          else
+            gh api --method PATCH "/user/packages/container/${IMAGE_PACKAGE}" -f visibility=public
+          fi
+
+  deploy:
+    needs: build-image
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    concurrency:
+      group: production-terraform-deployment
+      cancel-in-progress: false
+    permissions:
+      contents: read
+      id-token: write
+    env:
+      TF_IN_AUTOMATION: "true"
+      TF_VAR_azure_subscription_id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      TF_VAR_container_image: ${{ needs.build-image.outputs.image }}
+      TF_VAR_gemini_api_key: ${{ secrets.GEMINI_API_KEY }}
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      ARM_USE_OIDC: "true"
+      ARM_USE_AZUREAD: "true"
+      ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+      ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+      ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      TF_STATE_RESOURCE_GROUP: rg-lktaxassistant-tfstate
+      TF_STATE_STORAGE_ACCOUNT: ${{ vars.TF_STATE_STORAGE_ACCOUNT }}
+      TF_STATE_CONTAINER: tfstate
+      TF_STATE_KEY: lktaxassistant-dev.tfstate
+      DEPLOYMENT_RESOURCE_GROUP: rg-lktaxassistant-dev
+      SEARCH_INDEX_NAME: tax-assistant
+      EMBEDDING_DIMENSIONS: "768"
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Require deployment configuration
+        run: |
+          if [ -z "$GEMINI_API_KEY" ]; then
+            echo "::error title=Missing GEMINI_API_KEY::Set the GEMINI_API_KEY GitHub Actions secret before deploying."
+            exit 1
+          fi
+          if [ -z "$TF_STATE_STORAGE_ACCOUNT" ]; then
+            echo "::error title=Missing TF_STATE_STORAGE_ACCOUNT::Set the TF_STATE_STORAGE_ACCOUNT GitHub Actions repository variable before deploying."
+            exit 1
+          fi
+
+      - name: Sign in to Azure with OIDC
         uses: azure/login@v3
         with:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
-      - name: Update Azure Container App
-        shell: bash
-        run: |
-          az extension add --name containerapp --upgrade
+      - uses: hashicorp/setup-terraform@v3
 
-          az containerapp update \
-            --resource-group "$AZURE_RESOURCE_GROUP" \
-            --name "$AZURE_CONTAINER_APP_NAME" \
-            --image "$IMAGE_NAME:$IMAGE_TAG"
-
-      - name: Verify backend health
-        shell: bash
+      - name: Initialize Terraform remote state
+        working-directory: infra/terraform
         run: |
-          APP_FQDN=$(az containerapp show \
-            --resource-group "$AZURE_RESOURCE_GROUP" \
-            --name "$AZURE_CONTAINER_APP_NAME" \
-            --query properties.configuration.ingress.fqdn \
+          terraform init -input=false \
+            -backend-config="resource_group_name=${TF_STATE_RESOURCE_GROUP}" \
+            -backend-config="storage_account_name=${TF_STATE_STORAGE_ACCOUNT}" \
+            -backend-config="container_name=${TF_STATE_CONTAINER}" \
+            -backend-config="key=${TF_STATE_KEY}" \
+            -backend-config="use_azuread_auth=true" \
+            -backend-config="use_oidc=true"
+
+      - name: Import the pre-created application resource group when needed
+        working-directory: infra/terraform
+        run: |
+          if terraform state show azurerm_resource_group.main >/dev/null 2>&1; then
+            exit 0
+          fi
+
+          RESOURCE_GROUP_ID=$(az group show \
+            --name "$DEPLOYMENT_RESOURCE_GROUP" \
+            --query id \
+            --output tsv 2>/dev/null || true)
+
+          if [ -z "$RESOURCE_GROUP_ID" ]; then
+            echo "::error title=Azure setup required::Create the Terraform state storage and application resource group before the first deployment."
+            exit 1
+          fi
+
+          terraform import -input=false azurerm_resource_group.main "$RESOURCE_GROUP_ID"
+
+      - name: Plan and apply infrastructure
+        working-directory: infra/terraform
+        run: |
+          terraform plan -input=false -out=tfplan
+          terraform apply -input=false tfplan
+
+      - name: Read Terraform deployment outputs
+        working-directory: infra/terraform
+        run: |
+          {
+            echo "RESOURCE_GROUP=$(terraform output -raw resource_group_name)"
+            echo "CONTAINER_APP_NAME=$(terraform output -raw container_app_name)"
+            echo "STATIC_WEB_APP_NAME=$(terraform output -raw static_web_app_name)"
+            echo "SEARCH_SERVICE_NAME=$(terraform output -raw search_service_name)"
+            echo "SEARCH_ENDPOINT=$(terraform output -raw search_endpoint)"
+            echo "BACKEND_URL=$(terraform output -raw backend_url)"
+            echo "FRONTEND_URL=$(terraform output -raw frontend_url)"
+          } >> "$GITHUB_ENV"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+          cache-dependency-glob: backend/uv.lock
+
+      - name: Install index-creation dependencies
+        working-directory: backend
+        run: uv sync --frozen --no-dev
+
+      - name: Install Azure CLI extensions
+        run: az extension add --name containerapp --upgrade --only-show-errors
+
+      - name: Create or update the Azure AI Search index
+        working-directory: backend
+        run: |
+          SEARCH_ADMIN_KEY=$(az search admin-key show \
+            --resource-group "$RESOURCE_GROUP" \
+            --service-name "$SEARCH_SERVICE_NAME" \
+            --query primaryKey \
             --output tsv)
-
-          curl --fail \
-            --retry 12 \
-            --retry-delay 5 \
-            "https://${APP_FQDN}/api/health"
-
-  deploy-frontend:
-    needs:
-      - deploy-backend
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-
-    permissions:
-      contents: read
-
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
+          echo "::add-mask::$SEARCH_ADMIN_KEY"
+          AZURE_SEARCH_ENDPOINT="$SEARCH_ENDPOINT" \
+          AZURE_SEARCH_INDEX="$SEARCH_INDEX_NAME" \
+          AZURE_SEARCH_KEY="$SEARCH_ADMIN_KEY" \
+          EMBEDDING_DIMENSIONS="$EMBEDDING_DIMENSIONS" \
+          uv run python ../scripts/create_search_index.py
 
       - name: Set up pnpm
         uses: pnpm/action-setup@v4
         with:
           version: 11.20.0
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: "22"
           cache: pnpm
           cache-dependency-path: frontend/pnpm-lock.yaml
 
-      - name: Install frontend dependencies
+      - name: Build the frontend for this backend
         working-directory: frontend
-        run: pnpm install --frozen-lockfile
+        run: |
+          pnpm install --frozen-lockfile
+          VITE_API_BASE_URL="$BACKEND_URL" pnpm build
 
-      - name: Build frontend
-        working-directory: frontend
-        env:
-          VITE_API_BASE_URL: ${{ vars.VITE_API_BASE_URL }}
-        run: pnpm build
+      - name: Retrieve the current Static Web Apps deployment token
+        id: static-web-app-token
+        run: |
+          SWA_DEPLOYMENT_TOKEN=$(az staticwebapp secrets list \
+            --name "$STATIC_WEB_APP_NAME" \
+            --resource-group "$RESOURCE_GROUP" \
+            --query properties.apiKey \
+            --output tsv)
+          if [ -z "$SWA_DEPLOYMENT_TOKEN" ]; then
+            echo "::error title=Static Web Apps token unavailable::Azure did not return a deployment token."
+            exit 1
+          fi
+          echo "::add-mask::$SWA_DEPLOYMENT_TOKEN"
+          echo "token=$SWA_DEPLOYMENT_TOKEN" >> "$GITHUB_OUTPUT"
 
-      - name: Deploy frontend to Azure Static Web Apps
+      - name: Deploy the frontend to Azure Static Web Apps
         uses: Azure/static-web-apps-deploy@v1
         with:
-          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          azure_static_web_apps_api_token: ${{ steps.static-web-app-token.outputs.token }}
           action: upload
           app_location: frontend/dist
           output_location: ""

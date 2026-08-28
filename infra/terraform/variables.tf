@@ -21,6 +21,12 @@ variable "location" {
   default     = "southeastasia"
 }
 
+variable "static_web_app_location" {
+  description = "Azure region for the Static Web App (Southeast Asia is unsupported)."
+  type        = string
+  default     = "eastasia"
+}
+
 variable "container_image" {
   description = "Public GHCR image for the FastAPI backend."
   type        = string
@@ -34,7 +40,7 @@ variable "gemini_api_key" {
 
 variable "gemini_model" {
   type    = string
-  default = "gemini-3.7-flash"
+  default = "gemini-3.5-flash-lite"
 }
 
 variable "gemini_embedding_model" {
@@ -51,4 +57,3 @@ variable "rag_min_score" {
   type    = number
   default = 0.25
 }
-

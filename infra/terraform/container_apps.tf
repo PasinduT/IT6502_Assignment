@@ -40,20 +40,62 @@ resource "azurerm_container_app" "api" {
       cpu    = 0.25
       memory = "0.5Gi"
 
-      env { name = "ENVIRONMENT" value = "production" }
-      env { name = "GEMINI_API_KEY" secret_name = "gemini-api-key" }
-      env { name = "GEMINI_MODEL" value = var.gemini_model }
-      env { name = "GEMINI_EMBEDDING_MODEL" value = var.gemini_embedding_model }
-      env { name = "EMBEDDING_DIMENSIONS" value = tostring(var.embedding_dimensions) }
-      env { name = "AZURE_SEARCH_ENDPOINT" value = "https://${azurerm_search_service.main.name}.search.windows.net" }
-      env { name = "AZURE_SEARCH_INDEX" value = "tax-assistant" }
-      env { name = "AZURE_SEARCH_KEY" secret_name = "search-key" }
-      env { name = "AZURE_STORAGE_ACCOUNT_URL" value = azurerm_storage_account.main.primary_blob_endpoint }
-      env { name = "AZURE_STORAGE_CONTAINER" value = azurerm_storage_container.documents.name }
-      env { name = "FRONTEND_ORIGIN" value = "https://${azurerm_static_web_app.frontend.default_host_name}" }
-      env { name = "RAG_TOP_K" value = "6" }
-      env { name = "RAG_MIN_SCORE" value = tostring(var.rag_min_score) }
-      env { name = "MAX_MESSAGE_CHARS" value = "8000" }
+      env {
+        name  = "ENVIRONMENT"
+        value = "production"
+      }
+      env {
+        name        = "GEMINI_API_KEY"
+        secret_name = "gemini-api-key"
+      }
+      env {
+        name  = "GEMINI_MODEL"
+        value = var.gemini_model
+      }
+      env {
+        name  = "GEMINI_EMBEDDING_MODEL"
+        value = var.gemini_embedding_model
+      }
+      env {
+        name  = "EMBEDDING_DIMENSIONS"
+        value = tostring(var.embedding_dimensions)
+      }
+      env {
+        name  = "AZURE_SEARCH_ENDPOINT"
+        value = "https://${azurerm_search_service.main.name}.search.windows.net"
+      }
+      env {
+        name  = "AZURE_SEARCH_INDEX"
+        value = "tax-assistant"
+      }
+      env {
+        name        = "AZURE_SEARCH_KEY"
+        secret_name = "search-key"
+      }
+      env {
+        name  = "AZURE_STORAGE_ACCOUNT_URL"
+        value = azurerm_storage_account.main.primary_blob_endpoint
+      }
+      env {
+        name  = "AZURE_STORAGE_CONTAINER"
+        value = azurerm_storage_container.documents.name
+      }
+      env {
+        name  = "FRONTEND_ORIGIN"
+        value = "https://${azurerm_static_web_app.frontend.default_host_name}"
+      }
+      env {
+        name  = "RAG_TOP_K"
+        value = "6"
+      }
+      env {
+        name  = "RAG_MIN_SCORE"
+        value = tostring(var.rag_min_score)
+      }
+      env {
+        name  = "MAX_MESSAGE_CHARS"
+        value = "8000"
+      }
     }
   }
 
@@ -66,4 +108,3 @@ resource "azurerm_container_app" "api" {
     }
   }
 }
-

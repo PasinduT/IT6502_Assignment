@@ -2,7 +2,7 @@
 
 A web assistant for Sri Lankan tax questions and Sri Lankan tax-portal navigation. With Azure AI Search configured it uses retrieval-augmented generation over an approved corpus and exposes the sources used. It can also run in an ungrounded Gemini-only mode for local testing.
 
-> Status: the application, provider integrations, ingestion pipeline, tests, Docker image, and Terraform infrastructure are scaffolded. A grounded deployment needs approved source documents plus Gemini and Azure credentials; sample metadata is deliberately not tax content.
+> Status: the application, provider integrations, ingestion pipeline, Docker image, and Terraform infrastructure are scaffolded. A grounded deployment needs approved source documents plus Gemini and Azure credentials; sample metadata is deliberately not tax content.
 
 ## Problem statement
 
@@ -61,19 +61,43 @@ Model IDs and embedding dimensions are configuration values. Ingestion and query
 ## Repository map
 
 ```text
-frontend/            React application and browser-session tests
-backend/             FastAPI service, RAG implementation, tests, Dockerfile
+frontend/            React application
+backend/             FastAPI service, RAG implementation, Dockerfile
 scripts/             Search-index creation and offline ingestion
 data/metadata/       Corpus manifest templates
 data/sample/         Draft portal-guide format (never indexed as approved)
 evaluation/          Initial 20-question RAG evaluation set
 infra/terraform/     Azure infrastructure
-.github/workflows/   Build, test, lint, and Terraform validation
+.github/workflows/   Build and Terraform deployment
 ```
 
-## Local setup
+## Getting started from a new computer
 
-Prerequisites: Node.js 22+, Python 3.11+, a Gemini API key, and an Azure AI Search service only if testing real retrieval.
+Install [Git](https://git-scm.com/downloads),
+[Node.js 22](https://nodejs.org/en/download),
+[pnpm](https://pnpm.io/installation), Python 3.11 or newer, and
+[uv](https://docs.astral.sh/uv/getting-started/installation/). Terraform and the
+Azure CLI are only required for Azure deployment. Confirm the tools, then clone
+the repository:
+
+```bash
+git --version
+node --version
+pnpm --version
+python3 --version
+uv --version
+```
+
+```bash
+git clone <repository-url>
+cd <repository-directory>
+```
+
+You need a Gemini API key to send chat requests. Azure AI Search is optional for
+local development; without it, the backend uses Gemini without retrieval or
+citations.
+
+## Local setup
 
 ### Backend
 
@@ -86,12 +110,11 @@ uv run uvicorn app.main:app --reload --port 8000
 
 `GET http://localhost:8000/api/health` works without provider credentials. Chat requires `GEMINI_API_KEY`; when the Azure Search endpoint or key is absent, it skips embedding and retrieval and answers from Gemini's model knowledge. This fallback returns no citations and its tax facts may be incomplete or outdated. Set both `AZURE_SEARCH_ENDPOINT` and `AZURE_SEARCH_KEY` to enable grounded RAG responses.
 
-Run checks:
+Run the backend linter:
 
 ```bash
 cd backend
 uv run ruff check .
-uv run pytest
 ```
 
 ### Frontend
@@ -103,7 +126,7 @@ cp .env.example .env
 pnpm dev
 ```
 
-Open `http://localhost:5173`. Other commands are `pnpm test` and `pnpm build`.
+Open `http://localhost:5173`. Create a production build with `pnpm build`.
 
 ## API
 
@@ -186,31 +209,38 @@ Terraform provisions:
 - Container Apps environment;
 - externally accessible, scale-to-zero FastAPI Container App.
 
-```bash
-cd infra/terraform
-cp terraform.tfvars.example terraform.tfvars
-terraform init
-terraform fmt -check
-terraform validate
-terraform plan
-terraform apply
-```
+### One-time Azure and GitHub setup
 
-Set `gemini_api_key` using a protected variable mechanism where possible. Terraform state can contain sensitive values even when CLI output hides them; use a secured remote backend before a real team deployment and never commit state. The search schema and data are managed idempotently by Python rather than Terraform.
+Follow [azure_setup.md](azure_setup.md) from the beginning. It explains how to
+select an Azure subscription, create both resource groups and the Terraform
+state storage, create the Entra application and service principal, configure
+GitHub OIDC, grant the two scoped roles, and add all GitHub secrets and
+variables. It does not assume that any project resource or deployment identity
+already exists.
+
+After that setup, a push to `main` runs the end-to-end deployment. The workflow
+builds the backend image, applies Terraform, creates the Search index, builds
+the frontend with the deployed backend URL, and deploys the frontend. No
+bootstrap shell script is needed.
+
+Do not commit `terraform.tfvars`, `.tfstate`, API keys, or Azure credentials.
+Terraform state can contain sensitive values and is stored in the private
+remote backend created by the setup guide.
+
+The search schema and data are managed idempotently by Python rather than Terraform.
 
 Useful outputs include the frontend URL, backend URL, storage account name, and Search service name. Build the frontend with `VITE_API_BASE_URL` set to the backend output, then deploy `frontend/dist` to the Static Web App.
 
 ## Deployment sequence
 
-1. Create Gemini credentials outside source control.
-2. Test and push the backend image to public GHCR.
-3. Apply Terraform.
-4. Export the Search endpoint/key locally and run the index script.
-5. Upload/ingest only approved Sri Lankan sources.
-6. Build the frontend with the Container App URL and deploy it to Static Web Apps.
-7. Verify CORS, health, grounded answer, refusal, and low-evidence behavior.
+1. Complete [azure_setup.md](azure_setup.md), including the GitHub secrets and repository variable.
+2. Commit your changes and push them to `main`.
+3. The deployment workflow builds, provisions, and deploys the application.
+4. Upload/ingest only approved Sri Lankan sources for grounded answers.
+5. Verify grounded answers, refusal behavior, and low-evidence behavior against that corpus.
 
-CI currently validates both applications and Terraform. Application deployment credentials/workflows should be added only after the Azure and GitHub environments exist.
+Pull requests never deploy. Main deployments are serialized so two Terraform
+applies cannot race for the state lock.
 
 ## Security and privacy
 
