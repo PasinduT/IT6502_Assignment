@@ -28,7 +28,6 @@ jobs:
           REPOSITORY=$(printf '%s' "${GITHUB_REPOSITORY#*/}" | tr '[:upper:]' '[:lower:]')
           PACKAGE="${REPOSITORY}-api"
           echo "image=ghcr.io/${OWNER}/${PACKAGE}:${IMAGE_TAG}" >> "$GITHUB_OUTPUT"
-          echo "package=${PACKAGE}" >> "$GITHUB_OUTPUT"
 
       - uses: docker/setup-buildx-action@v3
 
@@ -53,16 +52,14 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-      - name: Ensure the GHCR image is public
+      - name: Verify the GHCR image is public
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          OWNER_TYPE: ${{ github.event.repository.owner.type }}
-          IMAGE_PACKAGE: ${{ steps.image.outputs.package }}
+          IMAGE: ${{ steps.image.outputs.image }}
         run: |
-          if [ "$OWNER_TYPE" = "Organization" ]; then
-            gh api --method PATCH "/orgs/${GITHUB_REPOSITORY_OWNER}/packages/container/${IMAGE_PACKAGE}" -f visibility=public
-          else
-            gh api --method PATCH "/user/packages/container/${IMAGE_PACKAGE}" -f visibility=public
+          docker logout ghcr.io
+          if ! docker manifest inspect "$IMAGE" >/dev/null; then
+            echo "::error title=GHCR image is private::Open the package settings on GitHub, change its visibility to Public, then re-run this workflow."
+            exit 1
           fi
 
   deploy:

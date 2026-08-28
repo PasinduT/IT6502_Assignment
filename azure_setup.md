@@ -292,6 +292,24 @@ ready. The **Deploy** workflow will:
 5. create or update the Azure infrastructure and Search index; and
 6. build and deploy the frontend.
 
+The first image push creates a GHCR package named after the repository with
+`-api` appended. New GHCR packages are private by default, and GitHub does not
+provide a supported workflow API for changing package visibility. On the first
+run, if **Verify the GHCR image is public** stops the workflow:
+
+1. Open your GitHub profile or organization and select **Packages**.
+2. Open the package ending in `-api`.
+3. Select **Package settings**.
+4. Under **Danger Zone**, select **Change visibility → Public**.
+5. Enter the package name to confirm the permanent visibility change.
+6. Return to the failed workflow and select **Re-run all jobs**.
+
+The workflow deliberately signs out of GHCR and performs an anonymous manifest
+lookup before Terraform runs. If that check passes, Azure Container Apps can
+pull the image without registry credentials. A public GHCR package can be read
+anonymously; do not publish secrets or private application content in the
+image.
+
 Open **GitHub → Actions → Deploy** to follow the run. Terraform manages the
 application infrastructure after this one-time setup; no bootstrap shell script
 is required.
