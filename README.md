@@ -2,7 +2,7 @@
 
 A web assistant for Sri Lankan tax questions and Sri Lankan tax-portal navigation. With Azure AI Search configured, it uses retrieval-augmented generation (RAG) over Sri Lankan Documents and the RAMIS documentation and exposes the sources used. The entire project is designed to run under the free tier of Azure. But high usage might incur some costs.
 
-The project is accessible at: https://victorious-pebble-089e90700.7.azurestaticapps.net/chat/1902f014-c8c8-4196-b20f-54d08114d5a9
+The project is accessible at: https://victorious-pebble-089e90700.7.azurestaticapps.net/
 
 
 ## 1. Problem Statement
