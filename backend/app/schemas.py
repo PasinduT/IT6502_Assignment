@@ -38,15 +38,52 @@ class Citation(BaseModel):
     document_type: str | None = None
     section: str | None = None
     page: int | None = None
+    page_end: int | None = None
+    sheet: str | None = None
+    cell_range: str | None = None
+    authority_level: str | None = None
+    status: str | None = None
+    source_id: str | None = None
     published_date: date | None = None
     effective_from: date | None = None
     tax_year: str | None = None
     url: str | None = None
 
 
+class GuideImage(BaseModel):
+    id: str
+    url: str
+    alt: str
+    caption: str | None = None
+    source_id: str
+    page: int | None = None
+
+
+class GuideStep(BaseModel):
+    number: int
+    title: str
+    instruction: str
+    image: GuideImage | None = None
+    citation_ids: list[str] = Field(default_factory=list)
+
+
+class Guide(BaseModel):
+    title: str
+    steps: list[GuideStep]
+
+    @field_validator("steps")
+    @classmethod
+    def steps_are_contiguous(cls, steps: list[GuideStep]) -> list[GuideStep]:
+        expected = list(range(1, len(steps) + 1))
+        if [step.number for step in steps] != expected:
+            raise ValueError("guide step numbers must be contiguous and start at one")
+        return steps
+
+
 class ChatResponse(BaseModel):
     answer: str
     citations: list[Citation] = Field(default_factory=list)
+    guide: Guide | None = None
 
 
 class HealthResponse(BaseModel):

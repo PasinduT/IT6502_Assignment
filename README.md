@@ -144,32 +144,21 @@ curl -X POST http://localhost:8000/api/chat \
   -d '{"messages":[{"role":"user","content":"What do the approved sources say about VAT?"}]}'
 ```
 
-Success responses contain `answer` and `citations`; images are represented in `answer` with Markdown rather than a separate image field. Errors use a stable `{ "error": { "code", "message" } }` shape and do not expose provider internals.
+Success responses contain `answer`, `citations`, and an optional structured `guide`. A guide
+contains ordered steps; each step can reference only an approved, retrieved image through its
+structured `image` field. Clients must ignore unknown fields so older saved conversations remain
+readable. Errors use a stable `{ "error": { "code", "message" } }` shape and do not expose
+provider internals.
 
 When Gemini returns HTTP 429 after exhausting a request, token, or daily quota, the API
 returns `GEMINI_USAGE_LIMIT` with a user-facing message asking the user to try again later.
 
 ## Dataset and knowledge ingestion
 
-Only approved sources with `jurisdiction: LK` belong in the production index.
-
-1. Copy [data/metadata/sources.example.yaml](data/metadata/sources.example.yaml) to a private/appropriate manifest and point entries to approved PDFs.
-2. Put raw documents under `data/raw/tax-documents/` or another protected location. `data/raw/` is gitignored.
-3. Configure `backend/.env` with Gemini and Search values.
-4. Create the index and ingest content:
-
-```bash
-cd backend
-uv run python ../scripts/create_search_index.py
-uv run python ../scripts/ingest_tax_documents.py --manifest path/to/sources.yaml
-uv run python ../scripts/ingest_portal_guides.py --directory ../data/processed/portal-guides
-```
-
-The PDF pipeline preserves page boundaries and manifest dates, creates overlapping chunks, embeds in batches, and upserts stable IDs. It reports indexed, skipped, and failed records.
-
-### Portal screenshot workflow
-
-Screenshots are development inputs only. Remove names, TINs, credentials, tokens, account details, and other confidential data before inspection. Convert each workflow into YAML matching [data/sample/portal-guide.example.yaml](data/sample/portal-guide.example.yaml), manually verify every step, then set `review_status: approved`. The ingestion script rejects drafts and non-LK guides. Images and image paths are never indexed.
+Only approved Sri Lankan sources are eligible for grounded answers. The reviewable registry is
+kept in `data/metadata/`; downloaded documents and generated corpus artifacts stay local and are
+excluded from Git. The complete registry, corpus build, index rollout, guide-image workflow, and
+rollback procedure are in [setup_data_indicies.md](setup_data_indicies.md).
 
 ## AI/RAG behavior
 
@@ -180,9 +169,13 @@ grounded in the approved corpus, and returns an empty `citations` list.
 1. A year such as `2025/26` is normalized and used to prioritize/filter applicable metadata.
 2. Gemini creates a `RETRIEVAL_QUERY` vector.
 3. Azure AI Search combines that vector with keyword search and an optional year filter across both tax documents and portal guides.
-4. Chunks below `RAG_MIN_SCORE` are removed and duplicate evidence is collapsed.
+4. Chunks below `RAG_MIN_SCORE` are removed and duplicate evidence is collapsed. The default
+   is `0.01` because Azure hybrid/RRF scores are typically around `0.01–0.03`, rather than
+   normalized similarity scores; tune it after evaluating the deployed corpus.
 5. Gemini receives recent messages and the selected text evidence, then determines request scope and the most suitable answer format.
 6. Generated `[SOURCE_n]` markers are mapped to structured citations; unknown markers are dropped.
+7. Procedural responses are validated into the structured `guide` contract. The frontend persists
+   that field with each assistant message and renders only structured approved image URLs.
 
 The initial evaluation questions in [evaluation/rag_questions.json](evaluation/rag_questions.json) cover normal, year-sensitive, portal, foreign, unsupported, and prompt-injection cases. Expected source IDs should be filled after the real corpus is approved. Calibrate `RAG_MIN_SCORE` against this set rather than treating the default as production-ready.
 
@@ -241,6 +234,12 @@ Useful outputs include the frontend URL, backend URL, storage account name, and 
 
 Pull requests never deploy. Main deployments are serialized so two Terraform
 applies cannot race for the state lock.
+
+The integration review does not run the deployment workflow, Terraform apply, Search index
+creation, document embedding/upload, or image publication. Those are separate release actions
+requiring deliberately configured CI/cloud credentials and explicit approval after the registry,
+extraction, cost, retrieval, citation, and guide checks pass. Do not put provider credentials in
+the repository or command output.
 
 ## Security and privacy
 

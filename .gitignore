@@ -59,10 +59,15 @@ crash.log
 crash.*.log
 .terraform.tfstate.lock.info
 
-# Local source documents and generated ingestion output
+# Local source documents and generated ingestion output. Keep only the
+# checked-in placeholder; source downloads, corpus reports/chunks, embedding
+# caches, and rendered images must remain local.
 data/raw/
-data/processed/*
+data/processed/**
 !data/processed/.gitkeep
+
+# Deep-research source reports are working data, not repository metadata.
+data/deep-research-report*
 
 requirements.md
 AGENTS.md

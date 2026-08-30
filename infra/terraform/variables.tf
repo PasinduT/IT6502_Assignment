@@ -55,5 +55,18 @@ variable "embedding_dimensions" {
 
 variable "rag_min_score" {
   type    = number
-  default = 0.25
+  # Azure hybrid/RRF scores are small (typically around 0.01–0.03), unlike
+  # normalized similarity scores. Tune this after evaluating the deployed corpus.
+  default = 0.01
+}
+
+variable "guide_media_container_name" {
+  description = "Blob container for intentionally public, approved guide images."
+  type        = string
+  default     = "guide-images"
+
+  validation {
+    condition     = can(regex("^[a-z0-9](?:[a-z0-9-]{1,61}[a-z0-9])?$", var.guide_media_container_name))
+    error_message = "guide_media_container_name must be a valid Azure Blob container name."
+  }
 }

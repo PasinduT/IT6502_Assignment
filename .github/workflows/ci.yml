@@ -191,7 +191,7 @@ jobs:
           AZURE_SEARCH_INDEX="$SEARCH_INDEX_NAME" \
           AZURE_SEARCH_KEY="$SEARCH_ADMIN_KEY" \
           EMBEDDING_DIMENSIONS="$EMBEDDING_DIMENSIONS" \
-          uv run python ../scripts/create_search_index.py
+          uv run python ../scripts/create_search_index.py --upload
 
       - name: Set up pnpm
         uses: pnpm/action-setup@v4

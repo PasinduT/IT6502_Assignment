@@ -81,6 +81,10 @@ resource "azurerm_container_app" "api" {
         value = azurerm_storage_container.documents.name
       }
       env {
+        name  = "GUIDE_MEDIA_BASE_URL"
+        value = "${trimsuffix(azurerm_storage_account.guide_media.primary_blob_endpoint, "/")}/${azurerm_storage_container.guide_images.name}"
+      }
+      env {
         name  = "FRONTEND_ORIGIN"
         value = "https://${azurerm_static_web_app.frontend.default_host_name}"
       }

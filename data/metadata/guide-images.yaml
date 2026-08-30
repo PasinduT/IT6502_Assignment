@@ -1,0 +1,175 @@
+schema_version: 1
+images:
+- image_id: ird-login-page-1
+  public_url: null
+  title: Individual taxpayer login
+  alt_text: IRD e-services login screen with Individual taxpayer selected and fields for TIN, PIN, and verification text.
+  caption: Select Individual taxpayer, proceed to login, enter your TIN and PIN, then submit the verification text.
+  source_id: ird-login
+  source_url: https://www.ird.gov.lk/en/eServices/Lists/Registration/Attachments/4/Login%20v0%2010.pdf
+  page: 1
+  workflow_id: null
+  tax_types: []
+  taxpayer_types: []
+  effective_from: null
+  effective_to: null
+  status: current
+  review_status: draft
+  binary_sha256: 4b428868846b63c1533bb03d2a30a909637b6d186df14322a1bb9fc81c5745f6
+  byte_size: 104728
+  width: 1108
+  height: 1600
+- image_id: ird-ramis-tax-refund-quick-guide-page-2
+  public_url: null
+  title: Refund amount and payment method
+  alt_text: IRD refund form showing tax type, tax period, offset, cheque, and bank-transfer amount fields.
+  caption: Enter the tax type and period, then allocate the eligible refund to offset, cheque, or bank transfer.
+  source_id: ird-ramis-tax-refund-quick-guide
+  source_url: https://www.ird.gov.lk/en/eServices/Lists/PaymentRefund/Attachments/6/Quick_Guide_-_Refund_V_05.pdf
+  page: 2
+  workflow_id: null
+  tax_types: []
+  taxpayer_types: []
+  effective_from: null
+  effective_to: null
+  status: current
+  review_status: draft
+  binary_sha256: 81f51b69ffab89496be47050eeb953dfb3efca85f4e5cd9911032b99090a63d6
+  byte_size: 121182
+  width: 1108
+  height: 1600
+- image_id: ird-ramis-tax-refund-quick-guide-page-4
+  public_url: null
+  title: Refund request submission and acknowledgement
+  alt_text: IRD refund summary and declaration form followed by a request acknowledgement.
+  caption: Review the refund request, complete the declaration details, submit, and keep the Request ID.
+  source_id: ird-ramis-tax-refund-quick-guide
+  source_url: https://www.ird.gov.lk/en/eServices/Lists/PaymentRefund/Attachments/6/Quick_Guide_-_Refund_V_05.pdf
+  page: 4
+  workflow_id: null
+  tax_types: []
+  taxpayer_types: []
+  effective_from: null
+  effective_to: null
+  status: current
+  review_status: draft
+  binary_sha256: 65c22c12a7bfb544170022f7395895d340a3865c5e0b556eb5df1129cf3f4401
+  byte_size: 98998
+  width: 1108
+  height: 1600
+- image_id: ird-tin-registration-v0-11-page-2
+  public_url: null
+  title: TIN registration personal details and address
+  alt_text: IRD taxpayer registration form showing required personal, language, communication, and permanent-address fields.
+  caption: Complete the required personal particulars, preferred language and communication method, and permanent address.
+  source_id: ird-tin-registration-v0-11
+  source_url: https://www.ird.gov.lk/en/eServices/Lists/Registration/Attachments/1/TIN%20Registration%20v0%2011.pdf
+  page: 2
+  workflow_id: null
+  tax_types: []
+  taxpayer_types: []
+  effective_from: null
+  effective_to: null
+  status: current
+  review_status: draft
+  binary_sha256: f7befde6856b2ac8d3c451c6a5e07ed8e4fe08921856c71b2cf98aca7826496f
+  byte_size: 88126
+  width: 1108
+  height: 1600
+- image_id: ird-tin-registration-v0-11-page-5
+  public_url: null
+  title: TIN registration documents and submission
+  alt_text: IRD taxpayer registration form showing supporting-document upload, registration purpose, save, and submit controls.
+  caption: Upload supporting documents, select the registration purpose, save, review, and submit the application.
+  source_id: ird-tin-registration-v0-11
+  source_url: https://www.ird.gov.lk/en/eServices/Lists/Registration/Attachments/1/TIN%20Registration%20v0%2011.pdf
+  page: 5
+  workflow_id: null
+  tax_types: []
+  taxpayer_types: []
+  effective_from: null
+  effective_to: null
+  status: current
+  review_status: draft
+  binary_sha256: 7b882d29ad3c73f0ae5859dc7145fd91cab564657ba558d1a873f7e029601593
+  byte_size: 118100
+  width: 1108
+  height: 1600
+- image_id: ird-user-guide-for-ird-online-payment-e-page-2
+  public_url: null
+  title: Online payment details and IRD lookup
+  alt_text: Online tax payment form showing TIN, taxable period or year, tax type, payment type, and Search IRD Details.
+  caption: Enter the TIN, taxable period or year, tax type, and payment type, then search IRD details.
+  source_id: ird-user-guide-for-ird-online-payment-e
+  source_url: https://www.ird.gov.lk/en/eServices/Lists/PaymentRefund/Attachments/7/User_Guide_for_IRD_Online_Payment_E.pdf
+  page: 2
+  workflow_id: null
+  tax_types: []
+  taxpayer_types: []
+  effective_from: null
+  effective_to: null
+  status: current
+  review_status: draft
+  binary_sha256: f3372ce187b372820229b672aba04f775229e93de8e00feecb245bcee0fc9867
+  byte_size: 86350
+  width: 1091
+  height: 1600
+- image_id: ird-user-guide-for-ird-online-payment-e-page-4
+  public_url: null
+  title: Online payment confirmation
+  alt_text: Online tax payment confirmation screen showing payment details, OTP confirmation, and a successful payment reference.
+  caption: Confirm the payment and retain the IRD payment reference returned after a successful transaction.
+  source_id: ird-user-guide-for-ird-online-payment-e
+  source_url: https://www.ird.gov.lk/en/eServices/Lists/PaymentRefund/Attachments/7/User_Guide_for_IRD_Online_Payment_E.pdf
+  page: 4
+  workflow_id: null
+  tax_types: []
+  taxpayer_types: []
+  effective_from: null
+  effective_to: null
+  status: current
+  review_status: draft
+  binary_sha256: 9f6a1a852e3dfccb8a7bee471e4fab21e2b1e57f9e445474e8f24397f4be0180
+  byte_size: 66218
+  width: 1091
+  height: 1600
+- image_id: ird-vat-filing-2025-page-2
+  public_url: null
+  title: VAT schedule record capture
+  alt_text: IRD VAT schedule screen showing schedule selection, period details, invoice fields, and Save.
+  caption: Select the VAT schedule, enter the period and transaction details, and save the record.
+  source_id: ird-vat-filing-2025
+  source_url: https://www.ird.gov.lk/en/eServices/Lists/FilingReturns/Attachments/5/Quick_Guide_VAT_2025_V3.pdf
+  page: 2
+  workflow_id: null
+  tax_types:
+  - vat
+  taxpayer_types: []
+  effective_from: null
+  effective_to: null
+  status: current
+  review_status: draft
+  binary_sha256: c1b09c9b792a472725b317758047f596193617143fde5371978941435cf18b06
+  byte_size: 106328
+  width: 1108
+  height: 1600
+- image_id: ird-vat-filing-2025-page-5
+  public_url: null
+  title: VAT return submission
+  alt_text: IRD VAT return submission screen showing the Return Submission menu, taxable-period row, Proceed button, and confirmation dialog.
+  caption: Select the VAT return and proceed to begin the tax filing.
+  source_id: ird-vat-filing-2025
+  source_url: https://www.ird.gov.lk/en/eServices/Lists/FilingReturns/Attachments/5/Quick_Guide_VAT_2025_V3.pdf
+  page: 5
+  workflow_id: null
+  tax_types:
+  - vat
+  taxpayer_types: []
+  effective_from: null
+  effective_to: null
+  status: current
+  review_status: draft
+  binary_sha256: b541cf417f277d01c95d014621e4f0f617af82f516678d29f7873ed44a77c774
+  byte_size: 88150
+  width: 1108
+  height: 1600

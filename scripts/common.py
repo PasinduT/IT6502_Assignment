@@ -30,7 +30,7 @@ class IngestionConfig:
     chunk_overlap: int
 
     @classmethod
-    def from_env(cls) -> IngestionConfig:
+    def from_env(cls, *, require_cloud: bool = True) -> IngestionConfig:
         config = cls(
             gemini_api_key=os.getenv("GEMINI_API_KEY", ""),
             embedding_model=os.getenv("GEMINI_EMBEDDING_MODEL", "gemini-embedding-2"),
@@ -50,11 +50,24 @@ class IngestionConfig:
             }.items()
             if not value
         ]
-        if missing:
+        if missing and require_cloud:
             sys.exit(f"Missing required configuration: {', '.join(missing)}")
         if config.chunk_overlap >= config.chunk_chars:
             sys.exit("CHUNK_OVERLAP must be smaller than CHUNK_CHARS")
         return config
+
+    def missing_cloud_configuration(self) -> list[str]:
+        """Return missing provider settings without exposing their values."""
+
+        return [
+            name
+            for name, value in {
+                "GEMINI_API_KEY": self.gemini_api_key,
+                "AZURE_SEARCH_ENDPOINT": self.search_endpoint,
+                "AZURE_SEARCH_KEY": self.search_key,
+            }.items()
+            if not value
+        ]
 
 
 def chunk_text(text: str, size: int, overlap: int) -> list[str]:

@@ -1,0 +1,2542 @@
+schema_version: 1
+allowed_hosts:
+- www.ird.gov.lk
+- ird.gov.lk
+- eservices.ird.gov.lk
+sources:
+- id: ird-eservices-ird-gov-lk
+  title: eservices.ird.gov.lk
+  source_url: https://eservices.ird.gov.lk/
+  local_file: ../raw/research-sources/eservices.ird.gov.lk-index-e60a947703.html
+  media_type: text/html
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 0ab0805485cea89566d320758321dedaaf75af92ec4e70550768895bc1fac870
+  final_url: https://eservices.ird.gov.lk/Authentication/LoginEntry?ReturnUrl=%2fDashboard%2fShowDashboard
+- id: ird-loginpersonal
+  title: LoginPersonal
+  source_url: https://eservices.ird.gov.lk/Authentication/LoginPersonal
+  local_file: ../raw/research-sources/eservices.ird.gov.lk-authentication-loginpersonal-e0f44fe642.html
+  media_type: text/html
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 2a5be56c0c826b8663da16441bbe9feb183921fce5389f7218f7913dce8e374d
+- id: ird-index
+  title: Index
+  source_url: https://eservices.ird.gov.lk/Payment/PayingInSlip/Index
+  local_file: ../raw/research-sources/eservices.ird.gov.lk-payment-payinginslip-index-bd493e90cf.html
+  media_type: text/html
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 6306731ff673c185efd4484c3175ca3d5ed039241195ffc56941b10f127bd4cb
+- id: ird-forgotpin
+  title: ForgotPIN
+  source_url: https://eservices.ird.gov.lk/Registration/ForgotPIN
+  local_file: ../raw/research-sources/eservices.ird.gov.lk-registration-forgotpin-6a69170490.html
+  media_type: text/html
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 16ea48b590015725e83f34d35348e056ac095a831dc24e7deca11dfe90c4b01c
+- id: ird-showpinrequestdetail
+  title: ShowPINRequestDetail
+  source_url: https://eservices.ird.gov.lk/Registration/PINRequest/ShowPINRequestDetail
+  local_file: ../raw/research-sources/eservices.ird.gov.lk-registration-pinrequest-showpinrequestdetail-8a276fff42.html
+  media_type: text/html
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: e5ea8d9ac4309dda5f3313e204920a06c6d811e7b911aa3f689ad3d8d8807fe0
+- id: ird-index-c50eaac1
+  title: index
+  source_url: https://eservices.ird.gov.lk/Registration/verifyirdinformation/index
+  local_file: ../raw/research-sources/eservices.ird.gov.lk-registration-verifyirdinformation-index-e75132a927.html
+  media_type: text/html
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: c50eaac145a8e6604ef8cf16c02929c672ac50345d60ad6f073172787a651b68
+- id: ird-www-ird-gov-lk
+  title: www.ird.gov.lk
+  source_url: https://www.ird.gov.lk/
+  local_file: ../raw/research-sources/www.ird.gov.lk-index-bbb31c8c9c.html
+  media_type: text/html
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: dd5c7daa8531191cb56f561fbd17a4a0d2911839061122338a7b49e8cac49180
+  final_url: https://www.ird.gov.lk/SitePages/Default.aspx
+- id: ird-other-purpose-clearance-form
+  title: Other-purpose clearance form
+  source_url: https://www.ird.gov.lk/en/Downloads/Forms_Clearances/CLR_004_E%20-%20Application%20Form%20for%20Tax%20Clearance%20on%20Other%20Purpose.pdf
+  local_file: ../raw/research-sources/www.ird.gov.lk-en-downloads-forms_clearances-clr_004_e---application-form-for-tax-clearance-on-other-purpose.pdf-d116a0a9a5.pdf
+  media_type: application/pdf
+  document_type: return_form
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 019f56dacda3c7c3772637015aabe8ac4f678b7dec908d5cdde38ea0da13de29
+  form_code: CLR_004_E
+- id: ird-outward-remittance-clearance-form
+  title: Outward-remittance clearance form
+  source_url: https://www.ird.gov.lk/en/Downloads/Forms_Clearances/Form_App_Clearance_Outward.pdf
+  local_file: ../raw/research-sources/www.ird.gov.lk-en-downloads-forms_clearances-form_app_clearance_outward.pdf-53c42b35bb.pdf
+  media_type: application/pdf
+  document_type: return_form
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: eeb03370dc2c77ff7c49973d9253e551c97f5d1002277e85ccce96715cb14495
+- id: ird-iit-return-and-schedules-guide
+  title: IIT return and schedules guide
+  source_url: https://www.ird.gov.lk/en/Downloads/IT_Individuals_Doc/Asmt_IIT_004_2025_2026_E.pdf
+  local_file: ../raw/research-sources/www.ird.gov.lk-en-downloads-it_individuals_doc-asmt_iit_004_2025_2026_e.pdf-b9150d6fca.pdf
+  media_type: application/pdf
+  document_type: return_guide
+  authority_level: official_guide
+  authority_rank: 40
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 7e789b520538b45750d874fd67b6fc0ab277fad8b8597d7f01f4934979fa64d6
+  tax_year: 2025/2026
+  tax_types:
+  - individual_income_tax
+  taxpayer_types:
+  - individual
+  form_code: ASMT_IIT_004
+- id: ird-guide-to-iit-2425-e
+  title: Guide to IIT 2425 E
+  source_url: https://www.ird.gov.lk/en/Downloads/IT_Individuals_Doc/Guide_to_IIT_2425_E.pdf
+  local_file: ../raw/research-sources/www.ird.gov.lk-en-downloads-it_individuals_doc-guide_to_iit_2425_e.pdf-e2aa8d8ff3.pdf
+  media_type: application/pdf
+  document_type: return_guide
+  authority_level: official_guide
+  authority_rank: 40
+  jurisdiction: LK
+  language: en
+  status: historical
+  review_status: approved
+  sha256: 4f987143f6c8aff5b30341310ce53b3e5c88a3c30725dd90dac9f6072d41620b
+  tax_year: 2024/2025
+  tax_types:
+  - individual_income_tax
+  taxpayer_types:
+  - individual
+- id: ird-tpr-guidelines-2026-e
+  title: TPR Guidelines 2026 E
+  source_url: https://www.ird.gov.lk/en/Downloads/SiteAssets/TPR_Guidelines_2026_E.pdf
+  local_file: ../raw/research-sources/www.ird.gov.lk-en-downloads-siteassets-tpr_guidelines_2026_e.pdf-331bf47c3d.pdf
+  media_type: application/pdf
+  document_type: return_guide
+  authority_level: official_guide
+  authority_rank: 40
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: d6020192f4116184bc0c05ed7fe445f056af7a570f0e2b89b71b89bfc1a4fcfc
+- id: ird-forms
+  title: forms
+  source_url: https://www.ird.gov.lk/en/downloads/sitepages/forms.aspx?menuid=1804
+  local_file: ../raw/research-sources/www.ird.gov.lk-en-downloads-sitepages-forms.aspx-menuid-1804-55734be889.html
+  media_type: text/html
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: d2f6286c2487704259d41c76055ed7f7247d636edf6076ca92ce6960da021ff5
+- id: ird-tools
+  title: tools
+  source_url: https://www.ird.gov.lk/en/downloads/sitepages/tools.aspx
+  local_file: ../raw/research-sources/www.ird.gov.lk-en-downloads-sitepages-tools.aspx-c9d4134e4b.html
+  media_type: text/html
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: dbdd3ff54706880b081716dd01389c62f60a7e394f0b2171eeff6621c1e79aba
+- id: ird-user-guide-for-ird-online-payment-e
+  title: User Guide for IRD Online Payment E
+  source_url: https://www.ird.gov.lk/en/eServices/Lists/PaymentRefund/Attachments/7/User_Guide_for_IRD_Online_Payment_E.pdf
+  local_file: ../raw/research-sources/www.ird.gov.lk-en-eservices-lists-paymentrefund-attachments-7-user_guide_for_ird_online_payment_e.pdf-07cd01d7f7.pdf
+  media_type: application/pdf
+  document_type: portal_guide
+  authority_level: official_guide
+  authority_rank: 40
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 1a5bbc50d72668c542a79999b33fbe479a993e97da38e6962c158c33a13a1b52
+  render_pages:
+  - 2
+  - 4
+- id: ird-tin-registration-v0-11
+  title: TIN Registration v0 11
+  source_url: https://www.ird.gov.lk/en/eServices/Lists/Registration/Attachments/1/TIN%20Registration%20v0%2011.pdf
+  local_file: ../raw/research-sources/www.ird.gov.lk-en-eservices-lists-registration-attachments-1-tin-registration-v0-11.pdf-c760abfef6.pdf
+  media_type: application/pdf
+  document_type: portal_guide
+  authority_level: official_guide
+  authority_rank: 40
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: e48978e6f8a49edc11af88b2c3527782154acb030157d256461e03f47beb8b4d
+  document_version: v0
+  render_pages:
+  - 2
+  - 5
+- id: ird-filing-of-return
+  title: Filing of return
+  source_url: https://www.ird.gov.lk/en/eServices/sitepages/Filing%20of%20return.aspx?menuid=180102
+  local_file: ../raw/research-sources/www.ird.gov.lk-en-eservices-sitepages-filing-of-return.aspx-menuid-180102-f2d532ced5.html
+  media_type: text/html
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: d568d7ac97fe4801266bca491b663961dbabea7f85df100bafeb83d715e27434
+- id: ird-access-to-e-services
+  title: access to e services
+  source_url: https://www.ird.gov.lk/en/eservices/sitepages/access%20to%20e-services.aspx?menuid=1803
+  local_file: ../raw/research-sources/www.ird.gov.lk-en-eservices-sitepages-access-to-e-services.aspx-menuid-1803-0ff729b8f7.html
+  media_type: text/html
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 8f9a01179884f7feb2fe3ee77963cc1ff82fd855c709eb4350071aed202e69e8
+- id: ird-appeals-and-objections
+  title: appeals and objections
+  source_url: https://www.ird.gov.lk/en/eservices/sitepages/appeals%20and%20objections.aspx?menuid=180104
+  local_file: ../raw/research-sources/www.ird.gov.lk-en-eservices-sitepages-appeals-and-objections.aspx-menuid-180104-83c15be058.html
+  media_type: text/html
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 2b4d6c69e394bcc8709fb4efb6a2e7ac66e781a77b2949613477a094a8c333b4
+- id: ird-e-learning
+  title: e learning
+  source_url: https://www.ird.gov.lk/en/eservices/sitepages/e-learning.aspx?menuid=180201
+  local_file: ../raw/research-sources/www.ird.gov.lk-en-eservices-sitepages-e-learning.aspx-menuid-180201-ac7fc3f520.html
+  media_type: text/html
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 78f9ec683a133749eb9dca5c45fddd8d58098878ab65cf7f64b512454de99353
+- id: ird-registration
+  title: registration
+  source_url: https://www.ird.gov.lk/en/eservices/sitepages/registration.aspx
+  local_file: ../raw/research-sources/www.ird.gov.lk-en-eservices-sitepages-registration.aspx-caa70d9422.html
+  media_type: text/html
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 50aacc715d4db195e52decdd15f8df2f7c9c440930c7f6f5919f6e490b9d0b73
+- id: ird-track-call-centre-case
+  title: track call centre case
+  source_url: https://www.ird.gov.lk/en/eservices/sitepages/track%20call%20centre%20case.aspx
+  local_file: ../raw/research-sources/www.ird.gov.lk-en-eservices-sitepages-track-call-centre-case.aspx-e7ef37f6e2.html
+  media_type: text/html
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 7c7317b53f90a1615152ec4027208b61804b8eeca166c695e43a2eadb4acdb5c
+- id: ird-online-pay-otp
+  title: Online Pay OTP
+  source_url: https://www.ird.gov.lk/en/publications/SitePages/Online_Pay_OTP.aspx?menuid=1416
+  local_file: ../raw/research-sources/www.ird.gov.lk-en-publications-sitepages-online_pay_otp.aspx-menuid-1416-7684526a37.html
+  media_type: text/html
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 81fe332c1e2ed31a85bec2a1cf7f0ecdd7716cf99156c6672151a42c484d8439
+- id: ird-acts
+  title: Acts
+  source_url: https://www.ird.gov.lk/en/publications/sitepages/Acts.aspx?menuid=1601
+  local_file: ../raw/research-sources/www.ird.gov.lk-en-publications-sitepages-acts.aspx-menuid-1601-be15197c3a.html
+  media_type: text/html
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: a7daa27269ed00816d00956bca0a721555c5679d7d343a076d6c6555f125511f
+- id: ird-faqs
+  title: faqs
+  source_url: https://www.ird.gov.lk/en/sitepages/faqs.aspx
+  local_file: ../raw/research-sources/www.ird.gov.lk-en-sitepages-faqs.aspx-80c3534574.html
+  media_type: text/html
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: d48be1c90c4ad272c01399eea0dee7d5a80c3b3c600f83c8ac1944c1fe008fb2
+- id: ird-customer-service-promotion-units
+  title: customer service promotion units
+  source_url: https://www.ird.gov.lk/en/unit%20and%20services/sitepages/customer%20service_promotion%20units.aspx?menuid=1302
+  local_file: ../raw/research-sources/www.ird.gov.lk-en-unit-and-services-sitepages-customer-service_promotion-units.aspx-menuid-1302-9d4c8a33b5.html
+  media_type: text/html
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: e320d40420eba69014e1a641d71538b851009b51b325e0bf75a3e9caf25e8ccd
+- id: ird-metropolitan-and-regional-offices
+  title: metropolitan and regional offices
+  source_url: https://www.ird.gov.lk/en/unit%20and%20services/sitepages/metropolitan%20and%20regional%20offices.aspx
+  local_file: ../raw/research-sources/www.ird.gov.lk-en-unit-and-services-sitepages-metropolitan-and-regional-offices.aspx-8aa5fc2907.html
+  media_type: text/html
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: d31ba409105ab83a4914744e4002c7ae16a18c7f3ce857f530673d0bfc7793fb
+- id: ird-guide-to-iit-2425-s
+  title: Guide to IIT 2425 S
+  source_url: https://www.ird.gov.lk/si/Downloads/IT_Individuals_Doc/Guide_to_IIT_2425_S.pdf
+  local_file: ../raw/research-sources/www.ird.gov.lk-si-downloads-it_individuals_doc-guide_to_iit_2425_s.pdf-f6dc11020f.pdf
+  media_type: application/pdf
+  document_type: return_guide
+  authority_level: official_guide
+  authority_rank: 40
+  jurisdiction: LK
+  language: si
+  status: excluded
+  review_status: approved
+  sha256: 4e64437a280b8161fa9143af959640882fd8816978d62959e7deeac7a08e7b6a
+  tax_year: 2024/2025
+  tax_types:
+  - individual_income_tax
+  taxpayer_types:
+  - individual
+  exclusion_reason: Non-English source retained in the registry but excluded from
+    the English-first MVP corpus.
+- id: ird-access-to-e-services-6acaa7ae
+  title: access to e services
+  source_url: https://www.ird.gov.lk/si/eservices/sitepages/access%20to%20e-services.aspx?menuid=1803
+  local_file: ../raw/research-sources/www.ird.gov.lk-si-eservices-sitepages-access-to-e-services.aspx-menuid-1803-e03f8b327c.html
+  media_type: text/html
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: si
+  status: excluded
+  review_status: approved
+  sha256: 6acaa7ae9e7a2b4399dd894b5c666ca692b965d087f0eef1da0914f86da8c607
+  exclusion_reason: Non-English source retained in the registry but excluded from
+    the English-first MVP corpus.
+- id: ird-registration-84cc1c13
+  title: registration
+  source_url: https://www.ird.gov.lk/ta/eservices/sitepages/registration.aspx
+  local_file: ../raw/research-sources/www.ird.gov.lk-ta-eservices-sitepages-registration.aspx-9c2c18202f.html
+  media_type: text/html
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: ta
+  status: excluded
+  review_status: approved
+  sha256: 84cc1c13eb2065589b2fc3b5da26d60c1cf2202bd905f50084645f37ce1f560c
+  exclusion_reason: Non-English source retained in the registry but excluded from
+    the English-first MVP corpus.
+- id: ird-schedule-verification-tool-guide
+  title: Schedule verification tool guide
+  source_url: https://www.ird.gov.lk/en/Downloads/Lists/Tools/Attachments/7/How%20to%20use%20the%20schedule%20verification%20tool.pdf
+  local_file: ../raw/research-sources/operational/www.ird.gov.lk-en-downloads-lists-tools-attachments-7-how-to-use-the-schedule-verification-tool.pdf-ab6621145d.pdf
+  media_type: application/pdf
+  document_type: return_guide
+  authority_level: official_guide
+  authority_rank: 40
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 7e807ff78a97bac4367af3595c883bd855b57cc3f9df96faf0f3d100f185734f
+- id: ird-current-apit-e-service-guide
+  title: Current APIT e-service guide
+  source_url: https://www.ird.gov.lk/en/Downloads/Other_PAYE_Doc/Asmt_APIT_e-Ser_Guide_Common_25_26.pdf
+  local_file: ../raw/research-sources/operational/www.ird.gov.lk-en-downloads-other_paye_doc-asmt_apit_e-ser_guide_common_25_26.pdf-7f2167f174.pdf
+  media_type: application/pdf
+  document_type: return_guide
+  authority_level: official_guide
+  authority_rank: 40
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 74bae37de749839f98ee4f740756e7f52908499ddab8bc2324db304f15fa9a62
+  tax_year: 2025/2026
+  tax_types:
+  - apit
+  taxpayer_types:
+  - partnership
+- id: ird-portal-map
+  title: Portal map
+  source_url: https://www.ird.gov.lk/en/Quick%20Guide/IRD%20Portal%20Map%20%28English%29.pdf
+  local_file: ../raw/research-sources/operational/www.ird.gov.lk-en-quick-guide-ird-portal-map-english-.pdf-48ebc6efa7.pdf
+  media_type: application/pdf
+  document_type: return_guide
+  authority_level: official_guide
+  authority_rank: 40
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 691931c28ee586e3010b2d924ba3be91cf6fb6893de47917523cab3622c3e2be
+- id: ird-appeal-guide
+  title: Appeal guide
+  source_url: https://www.ird.gov.lk/en/eServices/Lists/AppealObjection/Attachments/5/Quick_Guide_-_Appeal_v0_6.pdf
+  local_file: ../raw/research-sources/operational/www.ird.gov.lk-en-eservices-lists-appealobjection-attachments-5-quick_guide_-_appeal_v0_6.pdf-2edafb5c37.pdf
+  media_type: application/pdf
+  document_type: portal_guide
+  authority_level: official_guide
+  authority_rank: 40
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: be475aa81bbeaf7301fdf529040b4ebf5cf40586cd271fcc31b48607e836dd02
+- id: ird-objection-guide
+  title: Objection guide
+  source_url: https://www.ird.gov.lk/en/eServices/Lists/AppealObjection/Attachments/6/Quick_Guide_-_Objection_v0_5.pdf
+  local_file: ../raw/research-sources/operational/www.ird.gov.lk-en-eservices-lists-appealobjection-attachments-6-quick_guide_-_objection_v0_5.pdf-bbfec99f5a.pdf
+  media_type: application/pdf
+  document_type: portal_guide
+  authority_level: official_guide
+  authority_rank: 40
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 3f470bb224790689293e57b24c7f4843f6ec68814ab64c9d1cafd0a6da7c6bf7
+- id: ird-administrative-review-request-guide
+  title: Administrative review request guide
+  source_url: https://www.ird.gov.lk/en/eServices/Lists/AppealObjection/Attachments/7/Quick_Guide_-_ARR_v02.pdf
+  local_file: ../raw/research-sources/operational/www.ird.gov.lk-en-eservices-lists-appealobjection-attachments-7-quick_guide_-_arr_v02.pdf-bf42f60733.pdf
+  media_type: application/pdf
+  document_type: portal_guide
+  authority_level: official_guide
+  authority_rank: 40
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 0e2100bf0b1e67b219b03abac8c1fb6e9afc14d6cb1acfb1afd9cf6917c82039
+- id: ird-svat-filing
+  title: SVAT filing
+  source_url: https://www.ird.gov.lk/en/eServices/Lists/FilingReturns/Attachments/1/SVAT_Quick_Guide_0_19.pdf
+  local_file: ../raw/research-sources/operational/www.ird.gov.lk-en-eservices-lists-filingreturns-attachments-1-svat_quick_guide_0_19.pdf-3b7cadcbc7.pdf
+  media_type: application/pdf
+  document_type: portal_guide
+  authority_level: official_guide
+  authority_rank: 40
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 060ba05ea2fa13977586f09a689d27852214424cdf19a0632b9a871b0fa39864
+  tax_types:
+  - vat
+- id: ird-vat-financial-services-filing
+  title: VAT financial services filing
+  source_url: https://www.ird.gov.lk/en/eServices/Lists/FilingReturns/Attachments/10/VATFS_Quick_Guide_V_01.pdf
+  local_file: ../raw/research-sources/operational/www.ird.gov.lk-en-eservices-lists-filingreturns-attachments-10-vatfs_quick_guide_v_01.pdf-d11f60fca4.pdf
+  media_type: application/pdf
+  document_type: portal_guide
+  authority_level: official_guide
+  authority_rank: 40
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 77e0ee124b6bb5caeab07fbaa1aeb61b26391a96702f1fa5cb82ca34edc812e5
+  tax_types:
+  - vat
+- id: ird-esc-filing
+  title: ESC filing
+  source_url: https://www.ird.gov.lk/en/eServices/Lists/FilingReturns/Attachments/12/ESC_eFile_Quick_Guide_v1.pdf
+  local_file: ../raw/research-sources/operational/www.ird.gov.lk-en-eservices-lists-filingreturns-attachments-12-esc_efile_quick_guide_v1.pdf-ae3ef70d6a.pdf
+  media_type: application/pdf
+  document_type: portal_guide
+  authority_level: official_guide
+  authority_rank: 40
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: ff356075db3cb1508fe551c67fb0644bf00bdace67aac5ee694b243629e15451
+- id: ird-stamp-duty-filing
+  title: Stamp duty filing
+  source_url: https://www.ird.gov.lk/en/eServices/Lists/FilingReturns/Attachments/13/SD_eFile_Quick_Guide_V0.1d2.pdf
+  local_file: ../raw/research-sources/operational/www.ird.gov.lk-en-eservices-lists-filingreturns-attachments-13-sd_efile_quick_guide_v0.1d2.pdf-38b75138fb.pdf
+  media_type: application/pdf
+  document_type: portal_guide
+  authority_level: official_guide
+  authority_rank: 40
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: a313277c708ca3b36bcd38af03faab2d11dcf3f0178ead6ca13e8afc0013683b
+  tax_types:
+  - stamp_duty
+- id: ird-apit-filing
+  title: APIT filing
+  source_url: https://www.ird.gov.lk/en/eServices/Lists/FilingReturns/Attachments/14/Quick_Guide_APIT_2021_V8.pdf
+  local_file: ../raw/research-sources/operational/www.ird.gov.lk-en-eservices-lists-filingreturns-attachments-14-quick_guide_apit_2021_v8.pdf-6e4c037c2c.pdf
+  media_type: application/pdf
+  document_type: portal_guide
+  authority_level: official_guide
+  authority_rank: 40
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: a3b1612a1da1bfdb396728cb1a8d2420148d734b3e6c4e9ff0622c42f646e653
+  tax_types:
+  - apit
+  taxpayer_types:
+  - partnership
+- id: ird-set-scs-filing
+  title: SET/SCS filing
+  source_url: https://www.ird.gov.lk/en/eServices/Lists/FilingReturns/Attachments/15/Quick_Guide_SET_SCS_2021_V1.2.pdf
+  local_file: ../raw/research-sources/operational/www.ird.gov.lk-en-eservices-lists-filingreturns-attachments-15-quick_guide_set_scs_2021_v1.2.pdf-3799998ae8.pdf
+  media_type: application/pdf
+  document_type: portal_guide
+  authority_level: official_guide
+  authority_rank: 40
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 3dfaf0acf5cf8de3378146b50f155396a5cc17807cb958e99e0d183163e249ad
+- id: ird-cgt-filing
+  title: CGT filing
+  source_url: https://www.ird.gov.lk/en/eServices/Lists/FilingReturns/Attachments/16/Quick_Guide_CGT_V0_1.pdf
+  local_file: ../raw/research-sources/operational/www.ird.gov.lk-en-eservices-lists-filingreturns-attachments-16-quick_guide_cgt_v0_1.pdf-659e559298.pdf
+  media_type: application/pdf
+  document_type: portal_guide
+  authority_level: official_guide
+  authority_rank: 40
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 1d1f4942a3f1b1e500386c6c49b05b40bf796fdd2df10701cd6d71b8f83dca2f
+- id: ird-vat-web-api
+  title: VAT Web API
+  source_url: https://www.ird.gov.lk/en/eServices/Lists/FilingReturns/Attachments/17/VAT_WEB_API_Quick_Guide_v0_1.pdf
+  local_file: ../raw/research-sources/operational/www.ird.gov.lk-en-eservices-lists-filingreturns-attachments-17-vat_web_api_quick_guide_v0_1.pdf-9e97e33738.pdf
+  media_type: application/pdf
+  document_type: portal_guide
+  authority_level: official_guide
+  authority_rank: 40
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 65d31ad7517e618e7ae0098e614387de083ff69b91b55130940c70e9460fe597
+  tax_types:
+  - vat
+- id: ird-paye-filing
+  title: PAYE filing
+  source_url: https://www.ird.gov.lk/en/eServices/Lists/FilingReturns/Attachments/2/PAYE_v0_18_wef1819_V7.pdf
+  local_file: ../raw/research-sources/operational/www.ird.gov.lk-en-eservices-lists-filingreturns-attachments-2-paye_v0_18_wef1819_v7.pdf-8709fc0c13.pdf
+  media_type: application/pdf
+  document_type: portal_guide
+  authority_level: official_guide
+  authority_rank: 40
+  jurisdiction: LK
+  language: en
+  status: historical
+  review_status: approved
+  sha256: d685e4b47dd006f52719fb1f6fc2414fda6c70bc8096b07da2f06302bb53e793
+  tax_year: 2018/2019
+- id: ird-nbt-filing
+  title: NBT filing
+  source_url: https://www.ird.gov.lk/en/eServices/Lists/FilingReturns/Attachments/3/NBT_Quick_Guide_v0%208.pdf
+  local_file: ../raw/research-sources/operational/www.ird.gov.lk-en-eservices-lists-filingreturns-attachments-3-nbt_quick_guide_v0-8.pdf-1b740e4979.pdf
+  media_type: application/pdf
+  document_type: portal_guide
+  authority_level: official_guide
+  authority_rank: 40
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: f425653f0f016477e5bc3689605ff3ef35ddc33ddadfedcd79d273d4cfb2940f
+- id: ird-vat-filing-2025
+  title: VAT filing 2025
+  source_url: https://www.ird.gov.lk/en/eServices/Lists/FilingReturns/Attachments/5/Quick_Guide_VAT_2025_V3.pdf
+  local_file: ../raw/research-sources/operational/www.ird.gov.lk-en-eservices-lists-filingreturns-attachments-5-quick_guide_vat_2025_v3.pdf-75d3040b8c.pdf
+  media_type: application/pdf
+  document_type: portal_guide
+  authority_level: official_guide
+  authority_rank: 40
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 413236eeec41851f66cc752d3047f07f663f5a8a0cc5b0754582417a94143c36
+  tax_types:
+  - vat
+  render_pages:
+  - 2
+  - 5
+- id: ird-wht-filing
+  title: WHT filing
+  source_url: https://www.ird.gov.lk/en/eServices/Lists/FilingReturns/Attachments/6/WHT_Quick_Guide_v0_11_E.pdf
+  local_file: ../raw/research-sources/operational/www.ird.gov.lk-en-eservices-lists-filingreturns-attachments-6-wht_quick_guide_v0_11_e.pdf-74ff8adb30.pdf
+  media_type: application/pdf
+  document_type: portal_guide
+  authority_level: official_guide
+  authority_rank: 40
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 35939d8106e5321b4664858c958cea55595c35548ddd7c6a46dd50b1bf8858f2
+  tax_types:
+  - wht
+- id: ird-cit-filing
+  title: CIT filing
+  source_url: https://www.ird.gov.lk/en/eServices/Lists/FilingReturns/Attachments/7/Quick_Guide_-_CIT_e-File_2223_V0.pdf
+  local_file: ../raw/research-sources/operational/www.ird.gov.lk-en-eservices-lists-filingreturns-attachments-7-quick_guide_-_cit_e-file_2223_v0.pdf-d24c3f6d30.pdf
+  media_type: application/pdf
+  document_type: portal_guide
+  authority_level: official_guide
+  authority_rank: 40
+  jurisdiction: LK
+  language: en
+  status: historical
+  review_status: approved
+  sha256: 6ab2590e43ed355242c3451b5c788e2ed6e36f80d48b07fe6a257979b9fff679
+  tax_year: 2022/2023
+  tax_types:
+  - corporate_income_tax
+  taxpayer_types:
+  - company
+- id: ird-iit-filing
+  title: IIT filing
+  source_url: https://www.ird.gov.lk/en/eServices/Lists/FilingReturns/Attachments/8/Quick_Guide_-_IIT_e-File_2223_V0.pdf
+  local_file: ../raw/research-sources/operational/www.ird.gov.lk-en-eservices-lists-filingreturns-attachments-8-quick_guide_-_iit_e-file_2223_v0.pdf-e95e2021ff.pdf
+  media_type: application/pdf
+  document_type: portal_guide
+  authority_level: official_guide
+  authority_rank: 40
+  jurisdiction: LK
+  language: en
+  status: historical
+  review_status: approved
+  sha256: 5b53f37e2d6b6b45e6cbb8b118368fedf7d76c7c73079cb9870ea9b8453a240e
+  tax_year: 2022/2023
+  tax_types:
+  - individual_income_tax
+  taxpayer_types:
+  - individual
+- id: ird-pit-filing
+  title: PIT filing
+  source_url: https://www.ird.gov.lk/en/eServices/Lists/FilingReturns/Attachments/9/PIT1819_Quick_Guide_v_2.1.pdf
+  local_file: ../raw/research-sources/operational/www.ird.gov.lk-en-eservices-lists-filingreturns-attachments-9-pit1819_quick_guide_v_2.1.pdf-37bdcb08c1.pdf
+  media_type: application/pdf
+  document_type: portal_guide
+  authority_level: official_guide
+  authority_rank: 40
+  jurisdiction: LK
+  language: en
+  status: historical
+  review_status: approved
+  sha256: 451199a258b8229317ea67dbb926511664dabeaf9fac4a7fd0ada92ff0527d64
+  tax_year: 2018/2019
+  tax_types:
+  - partnership_income_tax
+  taxpayer_types:
+  - partnership
+- id: ird-credential-maintenance
+  title: Credential maintenance
+  source_url: https://www.ird.gov.lk/en/eServices/Lists/Registration/Attachments/10/Quick_Guide_-_TIN-PIN_SSID-PW_Maintenance%20v1.0.pdf
+  local_file: ../raw/research-sources/operational/www.ird.gov.lk-en-eservices-lists-registration-attachments-10-quick_guide_-_tin-pin_ssid-pw_maintenance-v1.0.pdf-2170d751b4.pdf
+  media_type: application/pdf
+  document_type: portal_guide
+  authority_level: official_guide
+  authority_rank: 40
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: e6f0a0e6f9e63feae2dc56a37353631c3bcf3eac5fc3f0fb9949dcdfc82a9261
+- id: ird-obtain-a-pin
+  title: Obtain a PIN
+  source_url: https://www.ird.gov.lk/en/eServices/Lists/Registration/Attachments/2/Obtaining%20a%20PIN%20v0%2012.pdf
+  local_file: ../raw/research-sources/operational/www.ird.gov.lk-en-eservices-lists-registration-attachments-2-obtaining-a-pin-v0-12.pdf-423b953311.pdf
+  media_type: application/pdf
+  document_type: portal_guide
+  authority_level: official_guide
+  authority_rank: 40
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 71055e2478fc0abd25774b0b54fb09c9bdf191228d2fd8119a8bdcbacf7597db
+- id: ird-login
+  title: Login
+  source_url: https://www.ird.gov.lk/en/eServices/Lists/Registration/Attachments/4/Login%20v0%2010.pdf
+  local_file: ../raw/research-sources/operational/www.ird.gov.lk-en-eservices-lists-registration-attachments-4-login-v0-10.pdf-63d1de3c2f.pdf
+  media_type: application/pdf
+  document_type: portal_guide
+  authority_level: official_guide
+  authority_rank: 40
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: bfadb5965b5321e3fb2fd600349fa95909a746c1fc14b3b5ba446d5291274ff2
+  render_pages:
+  - 1
+- id: ird-authorize-staff-and-tax-agent
+  title: Authorize staff and tax agent
+  source_url: https://www.ird.gov.lk/en/eServices/Lists/Registration/Attachments/5/Company%20-%20authorize%20staff%20and%20tax%20agent%20v0%2012.pdf
+  local_file: ../raw/research-sources/operational/www.ird.gov.lk-en-eservices-lists-registration-attachments-5-company---authorize-staff-and-tax-agent-v0-12.pdf-89695c8788.pdf
+  media_type: application/pdf
+  document_type: portal_guide
+  authority_level: official_guide
+  authority_rank: 40
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 2e54a51b7bf35d4601f382f36bec7829011cddf56aab5ab0b2645da51164f1ab
+- id: ird-tax-type-registration
+  title: Tax type registration
+  source_url: https://www.ird.gov.lk/en/eServices/Lists/Registration/Attachments/6/Tax_Type_Registration.pdf
+  local_file: ../raw/research-sources/operational/www.ird.gov.lk-en-eservices-lists-registration-attachments-6-tax_type_registration.pdf-f1d99be2a8.pdf
+  media_type: application/pdf
+  document_type: portal_guide
+  authority_level: official_guide
+  authority_rank: 40
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: a3f5865c4fe1ffe784ba43034665b97b81673fcc206fd393392274025ca91f1a
+- id: ird-update-tax-registration
+  title: Update tax registration
+  source_url: https://www.ird.gov.lk/en/eServices/Lists/Registration/Attachments/7/How_to_update_your_Tax_Registration.pdf
+  local_file: ../raw/research-sources/operational/www.ird.gov.lk-en-eservices-lists-registration-attachments-7-how_to_update_your_tax_registration.pdf-0abcba81b0.pdf
+  media_type: application/pdf
+  document_type: portal_guide
+  authority_level: official_guide
+  authority_rank: 40
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 40aa213753a6069cb1a26de1e3e6477869c0aa0791a14d4722c96a8479791e0a
+- id: ird-change-taxpayer-profile
+  title: Change taxpayer profile
+  source_url: https://www.ird.gov.lk/en/eServices/Lists/Registration/Attachments/8/How_to_Change_Taxpayer_Profile.pdf
+  local_file: ../raw/research-sources/operational/www.ird.gov.lk-en-eservices-lists-registration-attachments-8-how_to_change_taxpayer_profile.pdf-ded5f19485.pdf
+  media_type: application/pdf
+  document_type: portal_guide
+  authority_level: official_guide
+  authority_rank: 40
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: b9f9a3864072c23c2fbf383c6554ef36afda89e21e5eb9c7fd54541c6cad31cc
+- id: ird-tax-agent-registration
+  title: Tax agent registration
+  source_url: https://www.ird.gov.lk/en/eServices/Lists/Registration/Attachments/9/Tax_Agent_Registration.pdf
+  local_file: ../raw/research-sources/operational/www.ird.gov.lk-en-eservices-lists-registration-attachments-9-tax_agent_registration.pdf-ad4e07a7e0.pdf
+  media_type: application/pdf
+  document_type: portal_guide
+  authority_level: official_guide
+  authority_rank: 40
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: fdaae60b9662108577a7d85af9a70560c0a1db245b5d79f643f0367c6e009250
+- id: ird-consolidated-inland-revenue-act-with-2025-changes
+  title: Consolidated Inland Revenue Act with 2025 changes
+  source_url: https://www.ird.gov.lk/en/publications/Acts_Income%20Tax_2017/IRA_Cons_Act_-_2025_Changes.pdf
+  local_file: ../raw/research-sources/operational/www.ird.gov.lk-en-publications-acts_income-tax_2017-ira_cons_act_-_2025_changes.pdf-61b2713805.pdf
+  media_type: application/pdf
+  document_type: act
+  authority_level: legislation
+  authority_rank: 100
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 1f0c6f5844a53e4f87d5e69837c51d204a3a37b0659facc92cab7ab7bf67f46c
+  tax_types:
+  - income_tax
+- id: ird-inland-revenue-amendment-act-no-11-of-2026
+  title: Inland Revenue Amendment Act No. 11 of 2026
+  source_url: https://www.ird.gov.lk/en/publications/Acts_Income%20Tax_2017/IR_Act_No_11-2026_E.pdf
+  local_file: ../raw/research-sources/operational/www.ird.gov.lk-en-publications-acts_income-tax_2017-ir_act_no_11-2026_e.pdf-ec84d945ad.pdf
+  media_type: application/pdf
+  document_type: act
+  authority_level: legislation
+  authority_rank: 100
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 25c44cdd1e93e39e62ad254d1c32624b6a4f99d4d119bd98bb81930db6d5270e
+  tax_types:
+  - income_tax
+- id: ird-inland-revenue-act-no-24-of-2017
+  title: Inland Revenue Act No. 24 of 2017
+  source_url: https://www.ird.gov.lk/en/publications/Acts_Income%20Tax_2017/IR_Act_No_24_2017_E.pdf
+  local_file: ../raw/research-sources/operational/www.ird.gov.lk-en-publications-acts_income-tax_2017-ir_act_no_24_2017_e.pdf-3d2c46038a.pdf
+  media_type: application/pdf
+  document_type: act
+  authority_level: legislation
+  authority_rank: 100
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: e857f11ec026b424c4c8a5bc458f3fdd9cf1cca96e667b9a9bb80d8ccd972d77
+  tax_types:
+  - income_tax
+- id: ird-schedules
+  title: Schedules
+  source_url: https://www.ird.gov.lk/en/Downloads/SitePages/Schedules.aspx?menuid=1604
+  local_file: ../raw/research-sources-2/indexes/www.ird.gov.lk-en-downloads-sitepages-schedules.aspx-menuid-1604-3e0b9477b1.html
+  media_type: text/html
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: ee5ffcf84f91a5f22aeb6e863a91d1e9958f42abb7451adcde7ad9cc9bcfb3ef
+- id: ird-news-and-notices
+  title: News and Notices
+  source_url: https://www.ird.gov.lk/en/SitePages/News%20and%20Notices.aspx
+  local_file: ../raw/research-sources-2/indexes/www.ird.gov.lk-en-sitepages-news-and-notices.aspx-08169de055.html
+  media_type: text/html
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 5cb9723c1de978c3626ac5c392a5008fce1eb7c31436a658d9a3fc6efd00eec0
+- id: ird-upcomingduedateslist
+  title: UpcomingDueDatesList
+  source_url: https://www.ird.gov.lk/en/SitePages/UpcomingDueDatesList.aspx?menuid=1417
+  local_file: ../raw/research-sources-2/indexes/www.ird.gov.lk-en-sitepages-upcomingduedateslist.aspx-menuid-1417-104e8650af.html
+  media_type: text/html
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 4f48c1d8e65dd7db0287ea2f79827178841d853f4b0adad60f16910dd9fa9f1b
+- id: ird-stampduty
+  title: StampDuty
+  source_url: https://www.ird.gov.lk/en/Type%20of%20Taxes/SitePages/StampDuty.aspx?menuid=1209
+  local_file: ../raw/research-sources-2/indexes/www.ird.gov.lk-en-type-of-taxes-sitepages-stampduty.aspx-menuid-1209-56758553d0.html
+  media_type: text/html
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: cdbd9d6f80e2b3134caacb85eedf2d360dd41045bc08acdf8c369020ef2f7b65
+  tax_types:
+  - stamp_duty
+- id: ird-forms-ca0b4306
+  title: forms
+  source_url: https://www.ird.gov.lk/en/downloads/sitepages/forms.aspx?menuid=1603
+  local_file: ../raw/research-sources-2/indexes/www.ird.gov.lk-en-downloads-sitepages-forms.aspx-menuid-1603-460f70b226.html
+  media_type: text/html
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: ca0b43062d84ad3dc04ed6c16b0bc806e96a273410c18956b1508702cd3bb6c4
+- id: ird-payments-and-refunds
+  title: Payments and Refunds
+  source_url: https://www.ird.gov.lk/en/eServices/sitepages/Payments%20and%20Refunds.aspx?menuid=180103
+  local_file: ../raw/research-sources-2/indexes/www.ird.gov.lk-en-eservices-sitepages-payments-and-refunds.aspx-menuid-180103-11c7491a47.html
+  media_type: text/html
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: abd6229461c4842c2f5d8b8dbc6e49e2e873a89787fdfca7a3746c44dec6ca82
+- id: ird-registration-5c346947
+  title: Registration
+  source_url: https://www.ird.gov.lk/en/eServices/sitepages/Registration.aspx?menuid=180101
+  local_file: ../raw/research-sources-2/indexes/www.ird.gov.lk-en-eservices-sitepages-registration.aspx-menuid-180101-396acdeee3.html
+  media_type: text/html
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 5c34694746ff4eff677917456f38fda0e38966857ba02ab06377053693cbf7b4
+- id: ird-vat-refund-procedure
+  title: VAT Refund Procedure
+  source_url: https://www.ird.gov.lk/en/publications/SitePages/VAT%20Refund%20Procedure.aspx?menuid=1410
+  local_file: ../raw/research-sources-2/indexes/www.ird.gov.lk-en-publications-sitepages-vat-refund-procedure.aspx-menuid-1410-e5f03e67ac.html
+  media_type: text/html
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: dbad3dabdfbfdd6fbf2075f1d9c91cae5817424f693e331ba623aba37c033a5b
+  tax_types:
+  - vat
+- id: ird-tax-chart-2526
+  title: tax chart 2526
+  source_url: https://www.ird.gov.lk/en/publications/SitePages/tax_chart_2526.aspx?menuid=1404
+  local_file: ../raw/research-sources-2/indexes/www.ird.gov.lk-en-publications-sitepages-tax_chart_2526.aspx-menuid-1404-51883fe8c6.html
+  media_type: text/html
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: ca573ab4e2d8becedf3a261f4019e5e46466d4d2bc23645d8461f45e9c25e54f
+  tax_year: 2025/2026
+- id: ird-gazette
+  title: Gazette
+  source_url: https://www.ird.gov.lk/en/publications/sitepages/Gazette.aspx?menuid=1602
+  local_file: ../raw/research-sources-2/indexes/www.ird.gov.lk-en-publications-sitepages-gazette.aspx-menuid-1602-384b5e8d1e.html
+  media_type: text/html
+  document_type: gazette
+  authority_level: gazette
+  authority_rank: 90
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 916580951a6def7e60bb50ccaf6dd0d3dc7c5798e9206ecdf2b5d7b84140da61
+- id: ird-tax-calendar
+  title: Tax Calendar
+  source_url: https://www.ird.gov.lk/en/publications/sitepages/Tax%20Calendar.aspx?menuid=1405
+  local_file: ../raw/research-sources-2/indexes/www.ird.gov.lk-en-publications-sitepages-tax-calendar.aspx-menuid-1405-a6f1d26a37.html
+  media_type: text/html
+  document_type: tax_calendar
+  authority_level: official_calendar
+  authority_rank: 60
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 8cb60b7b99e0f674224cd6d27cee3fa4805c29f665ef0c76ee5adf67f62038fe
+- id: ird-acts-923abb84
+  title: acts
+  source_url: https://www.ird.gov.lk/en/publications/sitepages/acts.aspx?menuid=1601
+  local_file: ../raw/research-sources-2/indexes/www.ird.gov.lk-en-publications-sitepages-acts.aspx-menuid-1601-c023bc0df1.html
+  media_type: text/html
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 923abb8454ef8a0b9298176430bdffba50b7dcc5d600eccc487f163279500993
+- id: ird-apit-tax-tables
+  title: apit tax tables
+  source_url: https://www.ird.gov.lk/en/publications/sitepages/apit_tax_tables.aspx?menuid=1502
+  local_file: ../raw/research-sources-2/indexes/www.ird.gov.lk-en-publications-sitepages-apit_tax_tables.aspx-menuid-1502-8d1ca851bd.html
+  media_type: text/html
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 655db40393812a8a9db2f866a3ac651245a599b07436c614bae1e3c9bb63905c
+  tax_types:
+  - apit
+  taxpayer_types:
+  - partnership
+- id: ird-circulars
+  title: circulars
+  source_url: https://www.ird.gov.lk/en/publications/sitepages/circulars.aspx
+  local_file: ../raw/research-sources-2/indexes/www.ird.gov.lk-en-publications-sitepages-circulars.aspx-d426fecd76.html
+  media_type: text/html
+  document_type: circular
+  authority_level: official_circular
+  authority_rank: 80
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: f2947d869eb90ddba386a5bd0e2646fed80d720616c5ee8e1ab9ad1a0ec1b166
+- id: ird-advance-personal-income-tax-apit
+  title: advance personal income tax (apit)
+  source_url: https://www.ird.gov.lk/en/type%20of%20taxes/sitepages/advance%20personal%20income%20tax%20%28apit%29.aspx
+  local_file: ../raw/research-sources-2/indexes/www.ird.gov.lk-en-type-of-taxes-sitepages-advance-personal-income-tax-apit-.aspx-8eee6dc022.html
+  media_type: text/html
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 5e6216cd0576f1d9c49c94ddb0531e02e73668ed995a97eaa26fffdb07ece035
+  tax_types:
+  - apit
+  - income_tax
+  taxpayer_types:
+  - partnership
+- id: ird-income-tax-it
+  title: income tax (it)
+  source_url: https://www.ird.gov.lk/en/type%20of%20taxes/sitepages/income%20tax%20%28it%29.aspx
+  local_file: ../raw/research-sources-2/indexes/www.ird.gov.lk-en-type-of-taxes-sitepages-income-tax-it-.aspx-9513ea4abd.html
+  media_type: text/html
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 99d10378037268d735ab635d5a5a74dd45dd2c4c36c8fa7ab8c660098a72b58c
+  tax_types:
+  - income_tax
+- id: ird-social-security-contribution-levy-sscl
+  title: social security contribution levy (sscl)
+  source_url: https://www.ird.gov.lk/en/type%20of%20taxes/sitepages/social%20security%20contribution%20levy%20%28sscl%29.aspx
+  local_file: ../raw/research-sources-2/indexes/www.ird.gov.lk-en-type-of-taxes-sitepages-social-security-contribution-levy-sscl-.aspx-5f2648ab3b.html
+  media_type: text/html
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 74259d035018868e54239b98ff1f00c7f889a0427a1447a7ad215a7893730c5f
+  tax_types:
+  - sscl
+- id: ird-value-added-tax-vat
+  title: value added tax (vat)
+  source_url: https://www.ird.gov.lk/en/type%20of%20taxes/sitepages/value%20added%20tax%20%28vat%29.aspx
+  local_file: ../raw/research-sources-2/indexes/www.ird.gov.lk-en-type-of-taxes-sitepages-value-added-tax-vat-.aspx-7fe895c11a.html
+  media_type: text/html
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: a72b20aa0d79e688e88d292a05bb1022c9210bb0bee939ab3e52797f6c1ed403
+  tax_types:
+  - vat
+- id: ird-apit-certificate-t10-amended-2025-2026
+  title: APIT certificate T10 amended 2025/2026
+  source_url: https://www.ird.gov.lk/en/Downloads/Forms_APIT_Doc/APIT_T10_2526_AMD_EST.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-forms_apit_doc-apit_t10_2526_amd_est.pdf-a45b0aed4a.pdf
+  media_type: application/pdf
+  document_type: return_form
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 106c0fca632b400e68c540ae5a414daca358c1855bf6648738cb07b5de3910a5
+  tax_year: 2025/2026
+  tax_types:
+  - apit
+  taxpayer_types:
+  - partnership
+  form_code: APIT_T10
+- id: ird-refund-bank-information-form
+  title: Refund bank-information form
+  source_url: https://www.ird.gov.lk/en/Downloads/Forms_Rfn/RFN_Bank_Infor_Reg_01_E.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-forms_rfn-rfn_bank_infor_reg_01_e.pdf-86d4191eb9.pdf
+  media_type: application/pdf
+  document_type: return_form
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 0829d6e209d461175fc0d18e57724674ce1a2ec30be8b5fe8badae6f2ed9c391
+- id: ird-senior-citizen-refund-registration-form
+  title: Senior-citizen refund registration form
+  source_url: https://www.ird.gov.lk/en/Downloads/Forms_Se_Refund/RFN_WHT_01_E.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-forms_se_refund-rfn_wht_01_e.pdf-edf84048b9.pdf
+  media_type: application/pdf
+  document_type: return_form
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: e40ed53b36ff7f4377e179e816fc8f5a834a8fd237010c2f2a9f1a7bb66a2096
+  tax_types:
+  - wht
+  taxpayer_types:
+  - company
+  form_code: RFN_WHT_01
+- id: ird-senior-citizen-refund-claim-form-2024-2025
+  title: Senior-citizen refund claim form 2024/2025
+  source_url: https://www.ird.gov.lk/en/Downloads/Forms_Se_Refund/RFN_WHT_02_2425_E.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-forms_se_refund-rfn_wht_02_2425_e.pdf-368c8dd962.pdf
+  media_type: application/pdf
+  document_type: return_form
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 154f157c8bec341cfb23bd0c9d29adef9ed0981376110fe9ebb002cda7060ba8
+  tax_year: 2024/2025
+  tax_types:
+  - wht
+  taxpayer_types:
+  - company
+  form_code: RFN_WHT_02
+- id: ird-corporate-return
+  title: Corporate return
+  source_url: https://www.ird.gov.lk/en/Downloads/IT_Corporate_Doc/Asmt_CIT_001_2025_2026_E.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-it_corporate_doc-asmt_cit_001_2025_2026_e.pdf-4534f7cc1a.pdf
+  media_type: application/pdf
+  document_type: return_form
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: ef2c6ac3a7fc28dfe611b940c6776979737749f65037872772de9e29356563a1
+  tax_year: 2025/2026
+  tax_types:
+  - corporate_income_tax
+  taxpayer_types:
+  - company
+  form_code: ASMT_CIT_001
+- id: ird-corporate-schedules-part-a
+  title: Corporate schedules Part A
+  source_url: https://www.ird.gov.lk/en/Downloads/IT_Corporate_Doc/Asmt_CIT_002A_2025_2026_E.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-it_corporate_doc-asmt_cit_002a_2025_2026_e.pdf-557f860207.pdf
+  media_type: application/pdf
+  document_type: return_form
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 25c3d226579a7ad43ad5af61f012489b3ee95d60da7cdd2c734768ebd52eecc8
+  tax_year: 2025/2026
+  tax_types:
+  - corporate_income_tax
+  taxpayer_types:
+  - company
+- id: ird-corporate-schedules-part-b
+  title: Corporate schedules Part B
+  source_url: https://www.ird.gov.lk/en/Downloads/IT_Corporate_Doc/Asmt_CIT_002B_2025_2026_E.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-it_corporate_doc-asmt_cit_002b_2025_2026_e.pdf-4ea924271e.pdf
+  media_type: application/pdf
+  document_type: return_form
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: ada4824764f374c07e7222eda897fb5a63fce90e3a33103ae367ef6cc4841780
+  tax_year: 2025/2026
+  tax_types:
+  - corporate_income_tax
+  taxpayer_types:
+  - company
+- id: ird-corporate-return-guide
+  title: Corporate return guide
+  source_url: https://www.ird.gov.lk/en/Downloads/IT_Corporate_Doc/Asmt_CIT_003_2025_2026_E.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-it_corporate_doc-asmt_cit_003_2025_2026_e.pdf-acce11effd.pdf
+  media_type: application/pdf
+  document_type: return_guide
+  authority_level: official_guide
+  authority_rank: 40
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: a7f0c82585b8e9fb45f973fd8394b05239fd094d4db8736e9ab98250832ae37d
+  tax_year: 2025/2026
+  tax_types:
+  - corporate_income_tax
+  taxpayer_types:
+  - company
+  form_code: ASMT_CIT_003
+- id: ird-iit-return
+  title: IIT return
+  source_url: https://www.ird.gov.lk/en/Downloads/IT_Individuals_Doc/Asmt_IIT_001_2025_2026_E.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-it_individuals_doc-asmt_iit_001_2025_2026_e.pdf-cb1d17bbcf.pdf
+  media_type: application/pdf
+  document_type: return_form
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: d89252750a27800e82139de8543eaa5be0f48236f3c61df47c95dea01aab6161
+  tax_year: 2025/2026
+  tax_types:
+  - individual_income_tax
+  taxpayer_types:
+  - individual
+  form_code: ASMT_IIT_001
+- id: ird-iit-schedules
+  title: IIT schedules
+  source_url: https://www.ird.gov.lk/en/Downloads/IT_Individuals_Doc/Asmt_IIT_002_2025_2026_E.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-it_individuals_doc-asmt_iit_002_2025_2026_e.pdf-f8bd3d81da.pdf
+  media_type: application/pdf
+  document_type: return_form
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 13941f60b8f45824eb5eb5d6d97387dd25c7078ee86c4e35a555b84fbcbb0264
+  tax_year: 2025/2026
+  tax_types:
+  - individual_income_tax
+  taxpayer_types:
+  - individual
+  form_code: ASMT_IIT_002
+- id: ird-iit-assets-and-liabilities-statement
+  title: IIT assets and liabilities statement
+  source_url: https://www.ird.gov.lk/en/Downloads/IT_Individuals_Doc/Asmt_IIT_003_2025_2026_E.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-it_individuals_doc-asmt_iit_003_2025_2026_e.pdf-dea38f13e6.pdf
+  media_type: application/pdf
+  document_type: return_form
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 3a520cc3206ae2cba9dbd7b4e9e8cf522430dc9beb1e83b95f1193b3ea4bbc43
+  tax_year: 2025/2026
+  tax_types:
+  - individual_income_tax
+  taxpayer_types:
+  - individual
+  form_code: ASMT_IIT_003
+- id: ird-partnership-return
+  title: Partnership return
+  source_url: https://www.ird.gov.lk/en/Downloads/IT_Partnerships_Doc/Asmt_PIT_001_2025_2026_E.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-it_partnerships_doc-asmt_pit_001_2025_2026_e.pdf-461efc9c11.pdf
+  media_type: application/pdf
+  document_type: return_form
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: d2249c0f42a17ada24015e36adf42ecc74c3bdd14b000b7b6af7fc272da1df39
+  tax_year: 2025/2026
+  tax_types:
+  - partnership_income_tax
+  taxpayer_types:
+  - partnership
+  form_code: ASMT_PIT_001
+- id: ird-partnership-schedules
+  title: Partnership schedules
+  source_url: https://www.ird.gov.lk/en/Downloads/IT_Partnerships_Doc/Asmt_PIT_002_2025_2026_E.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-it_partnerships_doc-asmt_pit_002_2025_2026_e.pdf-400fcbf876.pdf
+  media_type: application/pdf
+  document_type: return_form
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: f3737ffec0028afd14ad77daf32573761f3831b25f909626e3f209669da7ee07
+  tax_year: 2025/2026
+  tax_types:
+  - partnership_income_tax
+  taxpayer_types:
+  - partnership
+  form_code: ASMT_PIT_002
+- id: ird-partnership-return-guide
+  title: Partnership return guide
+  source_url: https://www.ird.gov.lk/en/Downloads/IT_Partnerships_Doc/Asmt_PIT_003_2025_2026_E.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-it_partnerships_doc-asmt_pit_003_2025_2026_e.pdf-e6471ee568.pdf
+  media_type: application/pdf
+  document_type: return_guide
+  authority_level: official_guide
+  authority_rank: 40
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 31bbf43230524ad33a923bcad52e5f364d74f8901a7495f72ae953c1dfce1cb8
+  tax_year: 2025/2026
+  tax_types:
+  - partnership_income_tax
+  taxpayer_types:
+  - partnership
+  form_code: ASMT_PIT_003
+- id: ird-estimated-tax-statement-2025-2026
+  title: Estimated-tax statement 2025/2026
+  source_url: https://www.ird.gov.lk/en/Downloads/IT_SET_Doc/SET_2025_2026_E.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-it_set_doc-set_2025_2026_e.pdf-c9ee7d1367.pdf
+  media_type: application/pdf
+  document_type: return_form
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: a1a7e5a9b3ce3de0ae97c9f7097cf9458f682f0c82e1d721fa3c73937e825abb
+  tax_year: 2025/2026
+- id: ird-estimated-tax-and-quarterly-instalment-guide-2025-2026
+  title: Estimated-tax and quarterly-instalment guide 2025/2026
+  source_url: https://www.ird.gov.lk/en/Downloads/IT_SET_Doc/SET_25_26_Detail_Guide_E.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-it_set_doc-set_25_26_detail_guide_e.pdf-15e0ea190e.pdf
+  media_type: application/pdf
+  document_type: return_guide
+  authority_level: official_guide
+  authority_rank: 40
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 08add3f84a72e7bfcce7e90e48ad3651c801f4795a7087b187f17a524b9006a2
+  tax_year: 2025/2026
+- id: ird-apit-employer-annual-statement-2025-2026
+  title: APIT employer annual statement 2025/2026
+  source_url: https://www.ird.gov.lk/en/Downloads/Other_PAYE_Doc/Asmt_APIT_001_2025_2026_E.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-other_paye_doc-asmt_apit_001_2025_2026_e.pdf-f5da892ef1.pdf
+  media_type: application/pdf
+  document_type: return_form
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: d483c52490f816a984bf76db3f33c1f1bcc01030948bd2f94ef9c2902a51118a
+  tax_year: 2025/2026
+  tax_types:
+  - apit
+  taxpayer_types:
+  - partnership
+  form_code: ASMT_APIT_001
+- id: ird-apit-employer-statement-and-schedules-guide
+  title: APIT employer statement and schedules guide
+  source_url: https://www.ird.gov.lk/en/Downloads/Other_PAYE_Doc/Asmt_APIT_Guide_2025_2026_E.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-other_paye_doc-asmt_apit_guide_2025_2026_e.pdf-494c4b0a91.pdf
+  media_type: application/pdf
+  document_type: return_guide
+  authority_level: official_guide
+  authority_rank: 40
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 3c33abd4603df4f66ee83b8d804a22205fdeb19c23ffad64c8be5991cbc68a9d
+  tax_year: 2025/2026
+  tax_types:
+  - apit
+  taxpayer_types:
+  - partnership
+- id: ird-stamp-duty-statement
+  title: Stamp Duty statement
+  source_url: https://www.ird.gov.lk/en/Downloads/Other_SD_Doc/Asmt_SSDC_001.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-other_sd_doc-asmt_ssdc_001.pdf-df15fdea1c.pdf
+  media_type: application/pdf
+  document_type: return_form
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 3c689000178db8588424a42581634d84aded94d7138501d790b98623ebfca09b
+  tax_types:
+  - stamp_duty
+  form_code: ASMT_SSDC_001
+- id: ird-stamp-duty-statement-guide
+  title: Stamp Duty statement guide
+  source_url: https://www.ird.gov.lk/en/Downloads/Other_SD_Doc/Asmt_SSDC_002_2023_E.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-other_sd_doc-asmt_ssdc_002_2023_e.pdf-f45dde921c.pdf
+  media_type: application/pdf
+  document_type: return_guide
+  authority_level: official_guide
+  authority_rank: 40
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 1d955f09d7c71355ea3c00cd14b778760b12bdd1035320a7a21f576656a5aab3
+  tax_types:
+  - stamp_duty
+  form_code: ASMT_SSDC_002
+- id: ird-sscl-return
+  title: SSCL return
+  source_url: https://www.ird.gov.lk/en/Downloads/Other_SSCL_Doc/SSCL_20_E.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-other_sscl_doc-sscl_20_e.pdf-cdd9fa875d.pdf
+  media_type: application/pdf
+  document_type: return_form
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 3d1545903c5e9545ddd4ec3cc580478211e173dd5816bba61a8dcff5df0b02e4
+  tax_types:
+  - sscl
+  form_code: SSCL_20
+- id: ird-vat-return
+  title: VAT return
+  source_url: https://www.ird.gov.lk/en/Downloads/Other_VAT_Doc/Asmt_VAT_001_E.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-other_vat_doc-asmt_vat_001_e.pdf-85c5cdd12f.pdf
+  media_type: application/pdf
+  document_type: return_form
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 144a1b4b4489215f099cba27f9eb86fb59459c7a8af74e097d1d44bd0404a659
+  tax_types:
+  - vat
+  form_code: ASMT_VAT_001
+- id: ird-wht-and-ait-annual-statement-2025-2026
+  title: WHT and AIT annual statement 2025/2026
+  source_url: https://www.ird.gov.lk/en/Downloads/Other_WHT_Doc/ASMT_WHT_001_2025_2026_E.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-other_wht_doc-asmt_wht_001_2025_2026_e.pdf-946bafb463.pdf
+  media_type: application/pdf
+  document_type: return_form
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: aee97c4a88175187f1ed67b86f626277953d7ab37bebc924c0e8c266c1ef244d
+  tax_year: 2025/2026
+  tax_types:
+  - wht
+  form_code: ASMT_WHT_001
+- id: ird-wht-and-ait-annual-statement-guide-2025-2026
+  title: WHT and AIT annual statement guide 2025/2026
+  source_url: https://www.ird.gov.lk/en/Downloads/Other_WHT_Doc/ASMT_WHT_002_2025_2026_E.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-other_wht_doc-asmt_wht_002_2025_2026_e.pdf-e02042b9f0.pdf
+  media_type: application/pdf
+  document_type: return_guide
+  authority_level: official_guide
+  authority_rank: 40
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 6f9b354bfb7f115d915fa47e30edbacf79116e328e19a38ef94d8769489c9119
+  tax_year: 2025/2026
+  tax_types:
+  - wht
+  form_code: ASMT_WHT_002
+- id: ird-ait-quarterly-statement
+  title: AIT quarterly statement
+  source_url: https://www.ird.gov.lk/en/Downloads/Other_WHT_Q_Doc/Asmt_WHT_001_Q1_E.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-other_wht_q_doc-asmt_wht_001_q1_e.pdf-3c85542528.pdf
+  media_type: application/pdf
+  document_type: return_form
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 862f1afa080762656fcd72b306db36a52a54c69a5a19b0f401f5203b6f9944e8
+  tax_types:
+  - wht
+  form_code: ASMT_WHT_001
+- id: ird-ait-quarterly-schedules-1-and-4
+  title: AIT quarterly schedules 1 and 4
+  source_url: https://www.ird.gov.lk/en/Downloads/Other_WHT_Q_Doc/Asmt_WHT_Annexure_1%28b%29.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-other_wht_q_doc-asmt_wht_annexure_1-b-.pdf-76d088dcc8.pdf
+  media_type: application/pdf
+  document_type: return_form
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 1deaadc0360dd0bb3d9dce35ab71bdfb9eaee216041e9567a2888b1f0c7f0b04
+  tax_types:
+  - wht
+- id: ird-apit-schedule-01-amendment-ya-2025-2026
+  title: APIT Schedule 01 amendment YA 2025/2026
+  source_url: https://www.ird.gov.lk/en/Downloads/Schedules_APIT_2021/AMENDMENT_APIT_SCHEDULE_01_wef_YA2526_v1.xlsm
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-schedules_apit_2021-amendment_apit_schedule_01_wef_ya2526_v1.xlsm-a488efa39f.xlsm
+  media_type: application/vnd.ms-excel.sheet.macroEnabled.12
+  document_type: spreadsheet_template
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 04ee8516a10490c1257ab68d357f355a388c5f1f4785217badc624899ce83885
+  tax_year: 2025/2026
+  tax_types:
+  - apit
+  taxpayer_types:
+  - partnership
+- id: ird-apit-schedule-02-amendment-ya-2025-2026
+  title: APIT Schedule 02 amendment YA 2025/2026
+  source_url: https://www.ird.gov.lk/en/Downloads/Schedules_APIT_2021/AMENDMENT_APIT_SCHEDULE_02_wef_YA2526_v1.xlsm
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-schedules_apit_2021-amendment_apit_schedule_02_wef_ya2526_v1.xlsm-e0b2e287b6.xlsm
+  media_type: application/vnd.ms-excel.sheet.macroEnabled.12
+  document_type: spreadsheet_template
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 9c2de0f9f1613b4760d6179b631c03c9502e1c5328a06a5aa2d83e6064287524
+  tax_year: 2025/2026
+  tax_types:
+  - apit
+  taxpayer_types:
+  - partnership
+- id: ird-apit-schedule-03-amendment-ya-2025-2026
+  title: APIT Schedule 03 amendment YA 2025/2026
+  source_url: https://www.ird.gov.lk/en/Downloads/Schedules_APIT_2021/AMENDMENT_APIT_SCHEDULE_03_wef_YA2526_v1.xlsm
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-schedules_apit_2021-amendment_apit_schedule_03_wef_ya2526_v1.xlsm-f7f6a4dc60.xlsm
+  media_type: application/vnd.ms-excel.sheet.macroEnabled.12
+  document_type: spreadsheet_template
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: ea2e80a5905ae7502f0bc491800c1bf521f9813dc2879e0b3ac0c559ce6c00e1
+  tax_year: 2025/2026
+  tax_types:
+  - apit
+  taxpayer_types:
+  - partnership
+- id: ird-apit-schedule-01-ya-2025-2026
+  title: APIT Schedule 01 YA 2025/2026
+  source_url: https://www.ird.gov.lk/en/Downloads/Schedules_APIT_2021/APIT_SCHEDULE_01_wef_YA2526_v1.xlsm
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-schedules_apit_2021-apit_schedule_01_wef_ya2526_v1.xlsm-3dd4a4ea43.xlsm
+  media_type: application/vnd.ms-excel.sheet.macroEnabled.12
+  document_type: spreadsheet_template
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: cb7db616f808ac054720a88d2f043d32087e48f082a6fe332fb9f993dff45a6e
+  tax_year: 2025/2026
+  tax_types:
+  - apit
+  taxpayer_types:
+  - partnership
+- id: ird-apit-schedule-02-ya-2025-2026
+  title: APIT Schedule 02 YA 2025/2026
+  source_url: https://www.ird.gov.lk/en/Downloads/Schedules_APIT_2021/APIT_SCHEDULE_02_wef_YA2526_v1.xlsm
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-schedules_apit_2021-apit_schedule_02_wef_ya2526_v1.xlsm-9569c43d86.xlsm
+  media_type: application/vnd.ms-excel.sheet.macroEnabled.12
+  document_type: spreadsheet_template
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 1cd0d39f80bc6149b945af2176d1406b0f9ee5848b96df7805f96105243e4aee
+  tax_year: 2025/2026
+  tax_types:
+  - apit
+  taxpayer_types:
+  - partnership
+- id: ird-apit-schedule-03-ya-2025-2026
+  title: APIT Schedule 03 YA 2025/2026
+  source_url: https://www.ird.gov.lk/en/Downloads/Schedules_APIT_2021/APIT_SCHEDULE_03_wef_YA2526_v1.xlsm
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-schedules_apit_2021-apit_schedule_03_wef_ya2526_v1.xlsm-ee7047614a.xlsm
+  media_type: application/vnd.ms-excel.sheet.macroEnabled.12
+  document_type: spreadsheet_template
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: e767760a6356a00375651f1a1ef9a10f908601517a41ee487be030973c79f92a
+  tax_year: 2025/2026
+  tax_types:
+  - apit
+  taxpayer_types:
+  - partnership
+- id: ird-vat-schedule-01
+  title: VAT Schedule 01
+  source_url: https://www.ird.gov.lk/en/Downloads/Schedules_VAT/TIN_PERIODCODE_VAT_SCHEDULE01%20v1%208.xlsm
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-schedules_vat-tin_periodcode_vat_schedule01-v1-8.xlsm-197b56726e.xlsm
+  media_type: application/vnd.ms-excel.sheet.macroEnabled.12
+  document_type: spreadsheet_template
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 61dc4b020e760a9db04a86afa77209b9928a45240b37ef20a706893f5f0a235e
+  tax_types:
+  - vat
+- id: ird-vat-schedule-01-amendment
+  title: VAT Schedule 01 amendment
+  source_url: https://www.ird.gov.lk/en/Downloads/Schedules_VAT/TIN_PERIODCODE_VAT_SCHEDULE01_AMENDMENT%20v1%208.xlsm
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-schedules_vat-tin_periodcode_vat_schedule01_amendment-v1-8.xlsm-ab3a690900.xlsm
+  media_type: application/vnd.ms-excel.sheet.macroEnabled.12
+  document_type: spreadsheet_template
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 6db858d6c7093c92a588bb446435674665e1f94580760e793ba0019797f3d727
+  tax_types:
+  - vat
+- id: ird-vat-schedule-02
+  title: VAT Schedule 02
+  source_url: https://www.ird.gov.lk/en/Downloads/Schedules_VAT/TIN_PERIODCODE_VAT_SCHEDULE02%20v1%208.xlsm
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-schedules_vat-tin_periodcode_vat_schedule02-v1-8.xlsm-cdf1256851.xlsm
+  media_type: application/vnd.ms-excel.sheet.macroEnabled.12
+  document_type: spreadsheet_template
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 74b67a0bfe6b4963661487a3c354139e20acbe1261d27143e27bc3b178c72b71
+  tax_types:
+  - vat
+- id: ird-vat-schedule-02-amendment
+  title: VAT Schedule 02 amendment
+  source_url: https://www.ird.gov.lk/en/Downloads/Schedules_VAT/TIN_PERIODCODE_VAT_SCHEDULE02_AMENDMENT%20v1%208.xlsm
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-schedules_vat-tin_periodcode_vat_schedule02_amendment-v1-8.xlsm-d29407c542.xlsm
+  media_type: application/vnd.ms-excel.sheet.macroEnabled.12
+  document_type: spreadsheet_template
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 20f7b9fa45772756e3cb40b9b5929d338d8b49a10b4ad35b15ebb4cc2054a045
+  tax_types:
+  - vat
+- id: ird-vat-schedule-03
+  title: VAT Schedule 03
+  source_url: https://www.ird.gov.lk/en/Downloads/Schedules_VAT/TIN_PERIODCODE_VAT_SCHEDULE03%20v1%208.xlsm
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-schedules_vat-tin_periodcode_vat_schedule03-v1-8.xlsm-ad83111312.xlsm
+  media_type: application/vnd.ms-excel.sheet.macroEnabled.12
+  document_type: spreadsheet_template
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: ae468b5c814bcfb0a5431324cac7cd5e09c8fd2a16b407f776eddb17e753a32f
+  tax_types:
+  - vat
+- id: ird-vat-schedule-03-amendment
+  title: VAT Schedule 03 amendment
+  source_url: https://www.ird.gov.lk/en/Downloads/Schedules_VAT/TIN_PERIODCODE_VAT_SCHEDULE03_AMENDMENT%20v1%208.xlsm
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-schedules_vat-tin_periodcode_vat_schedule03_amendment-v1-8.xlsm-a9fd537161.xlsm
+  media_type: application/vnd.ms-excel.sheet.macroEnabled.12
+  document_type: spreadsheet_template
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: da5872a519b2840e00527a8579abd3778be2b5abbf5f4b7b593de40209d05141
+  tax_types:
+  - vat
+- id: ird-vat-schedule-04
+  title: VAT Schedule 04
+  source_url: https://www.ird.gov.lk/en/Downloads/Schedules_VAT/TIN_PERIODCODE_VAT_SCHEDULE04%20v1%208.xlsm
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-schedules_vat-tin_periodcode_vat_schedule04-v1-8.xlsm-228347b498.xlsm
+  media_type: application/vnd.ms-excel.sheet.macroEnabled.12
+  document_type: spreadsheet_template
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 3b2013e1bfbf7f5cc62919f6d4c20057e6cc399a6ebef399b4487262cd495b3b
+  tax_types:
+  - vat
+- id: ird-vat-schedule-04-amendment
+  title: VAT Schedule 04 amendment
+  source_url: https://www.ird.gov.lk/en/Downloads/Schedules_VAT/TIN_PERIODCODE_VAT_SCHEDULE04_AMENDMENT%20v1%208.xlsm
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-schedules_vat-tin_periodcode_vat_schedule04_amendment-v1-8.xlsm-54d72140bd.xlsm
+  media_type: application/vnd.ms-excel.sheet.macroEnabled.12
+  document_type: spreadsheet_template
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: af4be1b2a405b8f6b07a11f5475d797aa21ed1ef1d169e4418054bc49fa78785
+  tax_types:
+  - vat
+- id: ird-vat-schedule-05
+  title: VAT Schedule 05
+  source_url: https://www.ird.gov.lk/en/Downloads/Schedules_VAT/TIN_PERIODCODE_VAT_SCHEDULE05%20v1.8.xlsm
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-schedules_vat-tin_periodcode_vat_schedule05-v1.8.xlsm-e965dfa503.xlsm
+  media_type: application/vnd.ms-excel.sheet.macroEnabled.12
+  document_type: spreadsheet_template
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 8165bcb6a568c0e9dc398f94c8352500c7cdd1ce895a552f49687f13050dce0a
+  tax_types:
+  - vat
+- id: ird-vat-schedule-05-amendment
+  title: VAT Schedule 05 amendment
+  source_url: https://www.ird.gov.lk/en/Downloads/Schedules_VAT/TIN_PERIODCODE_VAT_SCHEDULE05_AMENDMENT%20v1.8.xlsm
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-schedules_vat-tin_periodcode_vat_schedule05_amendment-v1.8.xlsm-98dc5d07a9.xlsm
+  media_type: application/vnd.ms-excel.sheet.macroEnabled.12
+  document_type: spreadsheet_template
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: ffda8587752245d5bf2a4704892e95c0bc0a8395e6167d9e0fc486d3daa6a388
+  tax_types:
+  - vat
+- id: ird-vat-schedule-06-amendment
+  title: VAT Schedule 06 amendment
+  source_url: https://www.ird.gov.lk/en/Downloads/Schedules_VAT/TIN_PERIODCODE_VAT_SCHEDULE06_AMENDMENT_v1-8.xlsm
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-schedules_vat-tin_periodcode_vat_schedule06_amendment_v1-8.xlsm-bc9acecfd6.xlsm
+  media_type: application/vnd.ms-excel.sheet.macroEnabled.12
+  document_type: spreadsheet_template
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 35227fb0412d536f62a2b3a41b18e90969c4ae4e3dbb4d002ef3149656a25b6a
+  tax_types:
+  - vat
+- id: ird-vat-schedule-06
+  title: VAT Schedule 06
+  source_url: https://www.ird.gov.lk/en/Downloads/Schedules_VAT/TIN_PERIODCODE_VAT_SCHEDULE06_v1-8.xlsm
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-schedules_vat-tin_periodcode_vat_schedule06_v1-8.xlsm-584ccacaa1.xlsm
+  media_type: application/vnd.ms-excel.sheet.macroEnabled.12
+  document_type: spreadsheet_template
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: c5ef7aadaa46971b74cbaed6511b2ff8ceb5cff040a365e60af4d6d6c75ceb26
+  tax_types:
+  - vat
+- id: ird-vat-schedule-07-amendment
+  title: VAT Schedule 07 amendment
+  source_url: https://www.ird.gov.lk/en/Downloads/Schedules_VAT/TIN_PERIODCODE_VAT_SCHEDULE07_AMENDMENT_v1-8.xlsm
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-schedules_vat-tin_periodcode_vat_schedule07_amendment_v1-8.xlsm-36254c8534.xlsm
+  media_type: application/vnd.ms-excel.sheet.macroEnabled.12
+  document_type: spreadsheet_template
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 7bea543d4b286eb707e7ea4fd330adb5584981e8c365427d90fc3c1d0804e0aa
+  tax_types:
+  - vat
+- id: ird-vat-schedule-07
+  title: VAT Schedule 07
+  source_url: https://www.ird.gov.lk/en/Downloads/Schedules_VAT/TIN_PERIODCODE_VAT_SCHEDULE07_v1-8.xlsm
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-schedules_vat-tin_periodcode_vat_schedule07_v1-8.xlsm-b493fabe5d.xlsm
+  media_type: application/vnd.ms-excel.sheet.macroEnabled.12
+  document_type: spreadsheet_template
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 1ac035b066357b07cce15230348ba32a78c87fe5dcb158ec409562c07892b35e
+  tax_types:
+  - vat
+- id: ird-wht-ait-schedule-04-amendment-effective-2025
+  title: WHT/AIT Schedule 04 amendment effective 2025
+  source_url: https://www.ird.gov.lk/en/Downloads/Schedules_WHT_2021/WHT_Schedule_04_Amendment_wef_2025.xlsm
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-schedules_wht_2021-wht_schedule_04_amendment_wef_2025.xlsm-529f07d195.html
+  media_type: text/html
+  document_type: spreadsheet_template
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: excluded
+  review_status: rejected
+  sha256: dd5c7daa8531191cb56f561fbd17a4a0d2911839061122338a7b49e8cac49180
+  tax_types:
+  - wht
+  notes: The URL is advertised as XLSM, but the captured HTTP 200 response is an HTML
+    error page.
+  exclusion_reason: Expected XLSM download returned an HTML error page.
+- id: ird-wht-ait-schedule-04-effective-2025
+  title: WHT/AIT Schedule 04 effective 2025
+  source_url: https://www.ird.gov.lk/en/Downloads/Schedules_WHT_2021/WHT_Schedule_04_wef_2025.xlsm
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-downloads-schedules_wht_2021-wht_schedule_04_wef_2025.xlsm-97766539a2.xlsm
+  media_type: application/vnd.ms-excel.sheet.macroEnabled.12
+  document_type: spreadsheet_template
+  authority_level: official_form
+  authority_rank: 50
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 11c191ddb265ec31a17b65ae247fd1ac19e6a470914da8f9145144572ce17fc6
+  tax_types:
+  - wht
+- id: ird-march-2025-income-tax-amendments-and-refund-notice
+  title: March 2025 income-tax amendments and refund notice
+  source_url: https://www.ird.gov.lk/en/Lists/Latest%20News%20%20Notices/Attachments/666/PN_IT_2025-01_26032025_E.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-lists-latest-news-notices-attachments-666-pn_it_2025-01_26032025_e.pdf-5ba5bfb785.pdf
+  media_type: application/pdf
+  document_type: public_notice
+  authority_level: official_notice
+  authority_rank: 70
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: b0faa89a25880bc32b5173b4ba124b8282110f7233b150ca9d1fbdb915ee0399
+  tax_types:
+  - income_tax
+- id: ird-july-2026-vat-amendment-notice
+  title: July 2026 VAT amendment notice
+  source_url: https://www.ird.gov.lk/en/Lists/Latest%20News%20%20Notices/Attachments/799/PN_VAT_2026-03_New_E.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-lists-latest-news-notices-attachments-799-pn_vat_2026-03_new_e.pdf-5cb06a6083.pdf
+  media_type: application/pdf
+  document_type: public_notice
+  authority_level: official_notice
+  authority_rank: 70
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 0bdfc8e35394d0798686afccc965359dccf2a223efe8f2f66194a9c0f58adbd4
+  tax_types:
+  - vat
+- id: ird-ramis-tax-refund-quick-guide
+  title: RAMIS tax-refund quick guide
+  source_url: https://www.ird.gov.lk/en/eServices/Lists/PaymentRefund/Attachments/6/Quick_Guide_-_Refund_V_05.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-eservices-lists-paymentrefund-attachments-6-quick_guide_-_refund_v_05.pdf-f654d1df0f.pdf
+  media_type: application/pdf
+  document_type: portal_guide
+  authority_level: official_guide
+  authority_rank: 40
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 57acd10dc163dbc284eaaa70d54c89338641d404d293314b44aeb5a238c71017
+  render_pages:
+  - 2
+  - 4
+- id: ird-apit-guideline
+  title: APIT guideline
+  source_url: https://www.ird.gov.lk/en/publications/APIT_Tax_Tables/2025-2026/Guide/APIT_2526_Guideline.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-publications-apit_tax_tables-2025-2026-guide-apit_2526_guideline.pdf-ede500c64d.pdf
+  media_type: application/pdf
+  document_type: return_guide
+  authority_level: official_guide
+  authority_rank: 40
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: c29faa8bda76787acc8cc3cde8d14d2b0e9dd1ed3402ef6ffe4d3b229d34cbc8
+  tax_year: 2025/2026
+  tax_types:
+  - apit
+  taxpayer_types:
+  - partnership
+- id: ird-apit-table-index
+  title: APIT table index
+  source_url: https://www.ird.gov.lk/en/publications/APIT_Tax_Tables/2025-2026/Index/01.%20APIT_2526_Index.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-publications-apit_tax_tables-2025-2026-index-01.-apit_2526_index.pdf-8e3ff74750.pdf
+  media_type: application/pdf
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: edc0b1769fe95de9672f20e48f21b1727686fed4baac234259b738fd6c897e4a
+  tax_year: 2025/2026
+  tax_types:
+  - apit
+  taxpayer_types:
+  - partnership
+- id: ird-apit-values-for-non-cash-benefits
+  title: APIT values for non-cash benefits
+  source_url: https://www.ird.gov.lk/en/publications/APIT_Tax_Tables/2025-2026/Non%20Cash%20Benefits/SEC_2022_E_05%28Rev%29.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-publications-apit_tax_tables-2025-2026-non-cash-benefits-sec_2022_e_05-rev-.pdf-79388c81e8.pdf
+  media_type: application/pdf
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 42c762d87598213c424a816195b6adeffaadbf96429e7deaee39da1dad654138
+  tax_year: 2025/2026
+  tax_types:
+  - apit
+  taxpayer_types:
+  - partnership
+- id: ird-apit-table-01
+  title: APIT Table 01
+  source_url: https://www.ird.gov.lk/en/publications/APIT_Tax_Tables/2025-2026/Table%20-%201/02.%20APIT_2526_Table_01_Text.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-publications-apit_tax_tables-2025-2026-table---1-02.-apit_2526_table_01_text.pdf-1c74f39657.pdf
+  media_type: application/pdf
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 28d6f92848fa06918329982c83370a9885075f6b734aca372e3ccd6e5101b012
+  tax_year: 2025/2026
+  tax_types:
+  - apit
+  taxpayer_types:
+  - partnership
+- id: ird-apit-table-02
+  title: APIT Table 02
+  source_url: https://www.ird.gov.lk/en/publications/APIT_Tax_Tables/2025-2026/Table%20-%202/03.%20APIT_2526_Table_02_Text.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-publications-apit_tax_tables-2025-2026-table---2-03.-apit_2526_table_02_text.pdf-d11d14e260.pdf
+  media_type: application/pdf
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: f8c419e9db3a8092ac7c248fbf6d99545842bc7f30f3053d91608a8252a43215
+  tax_year: 2025/2026
+  tax_types:
+  - apit
+  taxpayer_types:
+  - partnership
+- id: ird-apit-table-03
+  title: APIT Table 03
+  source_url: https://www.ird.gov.lk/en/publications/APIT_Tax_Tables/2025-2026/Table%20-%203/04.%20APIT_2526_Table_03_Text.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-publications-apit_tax_tables-2025-2026-table---3-04.-apit_2526_table_03_text.pdf-72ab7a231e.pdf
+  media_type: application/pdf
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 9298c2d41071cfb96aa9967827bb1cf99d5b679c9e6b874a4af9da9e8f9e81b2
+  tax_year: 2025/2026
+  tax_types:
+  - apit
+  taxpayer_types:
+  - partnership
+- id: ird-apit-table-04
+  title: APIT Table 04
+  source_url: https://www.ird.gov.lk/en/publications/APIT_Tax_Tables/2025-2026/Table%20-%204/05.%20APIT_2526_Table_04_Text.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-publications-apit_tax_tables-2025-2026-table---4-05.-apit_2526_table_04_text.pdf-821c22795a.pdf
+  media_type: application/pdf
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: e293d659db1c727db5f472ca770db0b5e51a7438cbb6981497bb26f665b29141
+  tax_year: 2025/2026
+  tax_types:
+  - apit
+  taxpayer_types:
+  - partnership
+- id: ird-apit-table-05
+  title: APIT Table 05
+  source_url: https://www.ird.gov.lk/en/publications/APIT_Tax_Tables/2025-2026/Table%20-%205/06.%20APIT_2526_Table_05_Text.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-publications-apit_tax_tables-2025-2026-table---5-06.-apit_2526_table_05_text.pdf-22699fc19d.pdf
+  media_type: application/pdf
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: b06b9dcc6a0b10c7d42d9dd6e27fa9de29c56745dc5503bee6b8c892404a15bf
+  tax_year: 2025/2026
+  tax_types:
+  - apit
+  taxpayer_types:
+  - partnership
+- id: ird-apit-table-06
+  title: APIT Table 06
+  source_url: https://www.ird.gov.lk/en/publications/APIT_Tax_Tables/2025-2026/Table%20-%206/07.%20APIT_2526_Table_06_Text.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-publications-apit_tax_tables-2025-2026-table---6-07.-apit_2526_table_06_text.pdf-ea87a46490.pdf
+  media_type: application/pdf
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 5845265c6873267179d6323970e006c2400e5154e15043b9d8bd70e1a10a2aab
+  tax_year: 2025/2026
+  tax_types:
+  - apit
+  taxpayer_types:
+  - partnership
+- id: ird-apit-table-07
+  title: APIT Table 07
+  source_url: https://www.ird.gov.lk/en/publications/APIT_Tax_Tables/2025-2026/Table%20-%207/08.%20APIT_2526_Table_07_Text.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-publications-apit_tax_tables-2025-2026-table---7-08.-apit_2526_table_07_text.pdf-26c5e5c135.pdf
+  media_type: application/pdf
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: a6a20e36da3d4e71235e3f6f912f38aa86d197d0e86d3241d9f80d7938ee7d05
+  tax_year: 2025/2026
+  tax_types:
+  - apit
+  taxpayer_types:
+  - partnership
+- id: ird-apit-table-08
+  title: APIT Table 08
+  source_url: https://www.ird.gov.lk/en/publications/APIT_Tax_Tables/2025-2026/Table%20-%208/09.%20APIT_2526_Table_08_Text.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-publications-apit_tax_tables-2025-2026-table---8-09.-apit_2526_table_08_text.pdf-453368f5f0.pdf
+  media_type: application/pdf
+  document_type: official_webpage
+  authority_level: official_webpage
+  authority_rank: 30
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: a85b117d5d0b85222f3ab3a791c87dbe987547555ba9c7850dd8a752aaf6e7ca
+  tax_year: 2025/2026
+  tax_types:
+  - apit
+  taxpayer_types:
+  - partnership
+- id: ird-sscl-amendment-act-no-10-of-2026
+  title: SSCL Amendment Act No. 10 of 2026
+  source_url: https://www.ird.gov.lk/en/publications/Acts_SSCL/SSCL_Act_No_10-2026_E.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-publications-acts_sscl-sscl_act_no_10-2026_e.pdf-ce9ac3bc0c.pdf
+  media_type: application/pdf
+  document_type: act
+  authority_level: legislation
+  authority_rank: 100
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 5835db66e0ad2f4cbda93a9896940e049f7229fb145510e101bf412b8491d160
+  tax_types:
+  - sscl
+- id: ird-consolidated-sscl-act-through-june-2026
+  title: Consolidated SSCL Act through June 2026
+  source_url: https://www.ird.gov.lk/en/publications/Acts_SSCL/SSCL_Cons_Act_-_2026_Changes.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-publications-acts_sscl-sscl_cons_act_-_2026_changes.pdf-776e9fbfd1.pdf
+  media_type: application/pdf
+  document_type: act
+  authority_level: legislation
+  authority_rank: 100
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 808d6d0fdd8b90fbdf188d32ca79373b46e50c4431b9eebf54f4c33bef235fa3
+  tax_types:
+  - sscl
+- id: ird-stamp-duty-special-provisions-amendment-act-no-10-of-2008
+  title: Stamp Duty Special Provisions Amendment Act No. 10 of 2008
+  source_url: https://www.ird.gov.lk/en/publications/Acts_Stamp%20Duty/SDActNo.10%5BE%5D2008.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-publications-acts_stamp-duty-sdactno.10-e-2008.pdf-28d88d7468.pdf
+  media_type: application/pdf
+  document_type: act
+  authority_level: legislation
+  authority_rank: 100
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: d58fc39ad7f185ce867c3a54f2aeb5531cdb331ff1a3ba8461b8da16cf3bb428
+  tax_types:
+  - stamp_duty
+- id: ird-stamp-duty-special-provisions-act-no-12-of-2006
+  title: Stamp Duty Special Provisions Act No. 12 of 2006
+  source_url: https://www.ird.gov.lk/en/publications/Acts_Stamp%20Duty/SDActNo.12%5BE%5D2006.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-publications-acts_stamp-duty-sdactno.12-e-2006.pdf-1634a091eb.pdf
+  media_type: application/pdf
+  document_type: act
+  authority_level: legislation
+  authority_rank: 100
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 4df5491552c6565c4eca2a849c5f4783deec80e0e05a20b5fdefba46c8ab3f13
+  tax_types:
+  - stamp_duty
+- id: ird-consolidated-stamp-duty-special-provisions-act
+  title: Consolidated Stamp Duty Special Provisions Act
+  source_url: https://www.ird.gov.lk/en/publications/Acts_Stamp%20Duty/SDActNo.12%5BE%5D2006ConsolFinal.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-publications-acts_stamp-duty-sdactno.12-e-2006consolfinal.pdf-bee592c38b.pdf
+  media_type: application/pdf
+  document_type: act
+  authority_level: legislation
+  authority_rank: 100
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 34f85751e164f157096ff792e9d137ebb18be9bd557ce43fe572f736a5eb64f8
+  tax_types:
+  - stamp_duty
+- id: ird-consolidated-stamp-duty-act-no-43-of-1982
+  title: Consolidated Stamp Duty Act No. 43 of 1982
+  source_url: https://www.ird.gov.lk/en/publications/Acts_Stamp%20Duty/SDActNo.43%5BE%5D1982ConsolFinal.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-publications-acts_stamp-duty-sdactno.43-e-1982consolfinal.pdf-2a735fca3c.pdf
+  media_type: application/pdf
+  document_type: act
+  authority_level: legislation
+  authority_rank: 100
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: cab94d69a32866f3d469a5e32bacaa7960c249896ebc624b8c91f68d7d3357f7
+  tax_types:
+  - stamp_duty
+- id: ird-outward-remittance-tax-clearance-circular-sec-2022-e-06-revised
+  title: Outward-remittance tax-clearance circular SEC/2022/E/06 Revised
+  source_url: https://www.ird.gov.lk/en/publications/Circulars_Circulars/SEC_2022_E_06%28Rev%29.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-publications-circulars_circulars-sec_2022_e_06-rev-.pdf-d73cdcc013.pdf
+  media_type: application/pdf
+  document_type: circular
+  authority_level: official_circular
+  authority_rank: 80
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: bda7d64ed88faf30667e3559126b7cf3ac539f52203bceda08001d80d5840e9a
+- id: ird-bank-interest-ait-circular-sec-2025-e-02
+  title: Bank-interest AIT circular SEC/2025/E/02
+  source_url: https://www.ird.gov.lk/en/publications/Circulars_Circulars/SEC_2025_E_02_E.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-publications-circulars_circulars-sec_2025_e_02_e.pdf-4e98f8b369.pdf
+  media_type: application/pdf
+  document_type: circular
+  authority_level: official_circular
+  authority_rank: 80
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 8ec1aac0c884dee05f5bf5a79475e9009253ef5b2ba790922c468fe4b5b037cd
+- id: ird-vat-risk-based-refund-scheme-circular-sec-2025-e-06
+  title: VAT Risk Based Refund Scheme circular SEC/2025/E/06
+  source_url: https://www.ird.gov.lk/en/publications/Circulars_Circulars/SEC_2025_E_06_E.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-publications-circulars_circulars-sec_2025_e_06_e.pdf-7ed56397e4.pdf
+  media_type: application/pdf
+  document_type: circular
+  authority_level: official_circular
+  authority_rank: 80
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 9f12e9d45bbf40fb23d98bbf348bd3c5a63435a5853809dbc04471d61bcc5b74
+  tax_types:
+  - vat
+- id: ird-resident-interest-ait-circular-sec-2026-e-01
+  title: Resident-interest AIT circular SEC/2026/E/01
+  source_url: https://www.ird.gov.lk/en/publications/Circulars_Circulars/SEC_2026_E_01_E.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-publications-circulars_circulars-sec_2026_e_01_e.pdf-c8d5032237.pdf
+  media_type: application/pdf
+  document_type: circular
+  authority_level: official_circular
+  authority_rank: 80
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 48374b91068e1784b7c739cc00fa8702aee30e6eeef6145db6bdf7c05006c6a0
+- id: ird-vat-nfe-export-supply-circular-sec-2026-e-02
+  title: VAT NFE export-supply circular SEC/2026/E/02
+  source_url: https://www.ird.gov.lk/en/publications/Circulars_Circulars/SEC_2026_E_02_E.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-publications-circulars_circulars-sec_2026_e_02_e.pdf-177e215b89.pdf
+  media_type: application/pdf
+  document_type: circular
+  authority_level: official_circular
+  authority_rank: 80
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 7b167fa0060d5f18714250cc2e59e954ae0b6ef126258dde4659fd5f61318e98
+  tax_types:
+  - vat
+- id: ird-vat-revised-tax-invoice-circular-sec-2026-e-03
+  title: VAT revised tax-invoice circular SEC/2026/E/03
+  source_url: https://www.ird.gov.lk/en/publications/Circulars_Circulars/SEC_2026_E_03_E.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-publications-circulars_circulars-sec_2026_e_03_e.pdf-159ff90694.pdf
+  media_type: application/pdf
+  document_type: circular
+  authority_level: official_circular
+  authority_rank: 80
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: c083b6e7b30d9adebef1a480c2d1383ec3dbcc66b22563187357a850e8565294
+  tax_types:
+  - vat
+- id: ird-wht-and-ait-circular-sec-2026-e-04
+  title: WHT and AIT circular SEC/2026/E/04
+  source_url: https://www.ird.gov.lk/en/publications/Circulars_Circulars/SEC_2026_E_04_E.PDF
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-publications-circulars_circulars-sec_2026_e_04_e.pdf-c1c560a5b3.pdf
+  media_type: application/pdf
+  document_type: circular
+  authority_level: official_circular
+  authority_rank: 80
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 5065b01b878dbe24de029c1f5eacbd01068a8b76b48598b58ffbfd3fd34ce34b
+  tax_types:
+  - wht
+- id: ird-salary-arrears-tax-credit-circular-sec-2026-e-05
+  title: Salary-arrears tax-credit circular SEC/2026/E/05
+  source_url: https://www.ird.gov.lk/en/publications/Circulars_Circulars/SEC_2026_E_05_E.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-publications-circulars_circulars-sec_2026_e_05_e.pdf-576b946789.pdf
+  media_type: application/pdf
+  document_type: circular
+  authority_level: official_circular
+  authority_rank: 80
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 1aaf3f321cabb0ec1dd63ae032b4cc9b63a0d553e73d1f84ae9d2bb68fd33493
+- id: ird-quarterly-income-tax-instalments-sec-2026-e-06-re-revised
+  title: Quarterly income-tax instalments SEC/2026/E/06 Re-Revised
+  source_url: https://www.ird.gov.lk/en/publications/Circulars_Circulars/SEC_2026_E_06_ReRiv_E.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-publications-circulars_circulars-sec_2026_e_06_reriv_e.pdf-967d8d7faa.pdf
+  media_type: application/pdf
+  document_type: circular
+  authority_level: official_circular
+  authority_rank: 80
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 4889d4b3647ef0d0d397e1669edd8db7c17611f27ea75087d7e73e2c5b98de23
+  tax_types:
+  - income_tax
+- id: ird-income-tax-section-86-7-gazette-2414-14
+  title: Income Tax section 86(7) Gazette 2414/14
+  source_url: https://www.ird.gov.lk/en/publications/Gazette_Documents/2024_2414-14_E.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-publications-gazette_documents-2024_2414-14_e.pdf-839984570a.pdf
+  media_type: application/pdf
+  document_type: gazette
+  authority_level: gazette
+  authority_rank: 90
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 01d7aa99be2e344b3c814715880fe0bcd2ff00678670a233fe1527f54e78eabd
+  tax_types:
+  - income_tax
+- id: ird-stamp-duty-gazette-2429-39
+  title: Stamp Duty Gazette 2429/39
+  source_url: https://www.ird.gov.lk/en/publications/Gazette_Documents/2025_2429-39_E.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-publications-gazette_documents-2025_2429-39_e.pdf-c91ab829f4.pdf
+  media_type: application/pdf
+  document_type: gazette
+  authority_level: gazette
+  authority_rank: 90
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 0fb1d14882af47d311d5629424f4983b060ff9ff17ae55e7156c55f75e86fba8
+  tax_types:
+  - stamp_duty
+- id: ird-non-resident-electronic-platform-vat-gazette-2443-30
+  title: Non-resident electronic-platform VAT Gazette 2443/30
+  source_url: https://www.ird.gov.lk/en/publications/Gazette_Documents/2025_2443-30_E.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-publications-gazette_documents-2025_2443-30_e.pdf-a9f109d9b8.pdf
+  media_type: application/pdf
+  document_type: gazette
+  authority_level: gazette
+  authority_rank: 90
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: fd0787a40c316638ebd6c9bd13024f6a15564b3990b36808384846cb78dfaefb
+  tax_types:
+  - vat
+- id: ird-vat-risk-based-refund-gazette-2456-02
+  title: VAT risk-based refund Gazette 2456/02
+  source_url: https://www.ird.gov.lk/en/publications/Gazette_Documents/2025_2456-02_E.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-publications-gazette_documents-2025_2456-02_e.pdf-4842584561.pdf
+  media_type: application/pdf
+  document_type: gazette
+  authority_level: gazette
+  authority_rank: 90
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 490802ecc6cfc6938dbcf4d0727dee307520313b79e4b52a89e11ac1c5b717e3
+  tax_types:
+  - vat
+- id: ird-vat-invoice-gazette-2481-22
+  title: VAT invoice Gazette 2481/22
+  source_url: https://www.ird.gov.lk/en/publications/Gazette_Documents/2026_2481-22_E.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-publications-gazette_documents-2026_2481-22_e.pdf-42e9cbc888.pdf
+  media_type: application/pdf
+  document_type: gazette
+  authority_level: gazette
+  authority_rank: 90
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 355b478128dd67b2878374fa56615e176b2efb6d67f90e2a63d52ea39ae37a22
+  tax_types:
+  - vat
+- id: ird-vat-invoice-gazette-2500-106
+  title: VAT invoice Gazette 2500/106
+  source_url: https://www.ird.gov.lk/en/publications/Gazette_Documents/2026_2500_106_E.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-publications-gazette_documents-2026_2500_106_e.pdf-6fbad195e0.pdf
+  media_type: application/pdf
+  document_type: gazette
+  authority_level: gazette
+  authority_rank: 90
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 6287879c8e64f23220af7f8414e1c3d3bc03b86af0cbb800e6ec97aea413fec7
+  tax_types:
+  - vat
+- id: ird-tax-calendar-2026
+  title: Tax Calendar 2026
+  source_url: https://www.ird.gov.lk/en/publications/Tax%20Calendar_Documents/Tax_Calendar_2026_E.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-publications-tax-calendar_documents-tax_calendar_2026_e.pdf-59c90776c2.pdf
+  media_type: application/pdf
+  document_type: tax_calendar
+  authority_level: official_calendar
+  authority_rank: 60
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 5ad65e484179bcb883b65edb70a133ebfab7b291b7814f180e41c49a751528f8
+- id: ird-consolidated-vat-act-through-december-2025
+  title: Consolidated VAT Act through December 2025
+  source_url: https://www.ird.gov.lk/en/publications/Value%20Added%20Tax_Acts/VAT_Act_No_14%5BE%5D_2002_%28Consolidation_2025%29.pdf
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-publications-value-added-tax_acts-vat_act_no_14-e-_2002_-consolidation_2025-.pdf-dd1b6fdac2.pdf
+  media_type: application/pdf
+  document_type: act
+  authority_level: legislation
+  authority_rank: 100
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: c948564cb86eaceaa01004f1fd78d89f36024e03e9805d8d512f78bd877fdd35
+  tax_types:
+  - vat
+- id: ird-vat-amendment-act-no-14-of-2026
+  title: VAT Amendment Act No. 14 of 2026
+  source_url: https://www.ird.gov.lk/en/publications/Value%20Added%20Tax_Acts/VAT_Act_No_14-2026_E.PDF
+  local_file: ../raw/research-sources-2/documents/www.ird.gov.lk-en-publications-value-added-tax_acts-vat_act_no_14-2026_e.pdf-d9dcff9560.pdf
+  media_type: application/pdf
+  document_type: act
+  authority_level: legislation
+  authority_rank: 100
+  jurisdiction: LK
+  language: en
+  status: current
+  review_status: approved
+  sha256: 2f66981191514d1b991c44341147f0f8558f2c491e7ea153e3e1514c15de3e16
+  tax_types:
+  - vat

@@ -1,7 +1,8 @@
 import { Check, Copy, ExternalLink } from "lucide-react";
 import { useState } from "react";
-import ReactMarkdown, { defaultUrlTransform } from "react-markdown";
+import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { Guide } from "./Guide";
 import type { ChatMessage } from "../types/chat";
 
 function AssistantContent({ content }: { content: string }) {
@@ -9,12 +10,6 @@ function AssistantContent({ content }: { content: string }) {
     <div className="markdown-content">
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
-        urlTransform={(url, key) =>
-          // Preserve image URLs for the renderer below, which only creates an
-          // element for HTTPS sources. Other URL-bearing elements use the
-          // library's safe protocol allowlist.
-          key === "src" ? url : defaultUrlTransform(url)
-        }
         components={{
           a: ({ children, href, ...props }) =>
             href ? (
@@ -53,22 +48,9 @@ function AssistantContent({ content }: { content: string }) {
               {children}
             </h3>
           ),
-          img: ({ alt, src, ...props }) => {
-            if (!src || !/^https:\/\//i.test(src)) {
-              return <span>{`![${alt ?? ""}](${src ?? ""})`}</span>;
-            }
-
-            return (
-              <img
-                {...props}
-                alt={alt || "Tax information illustration"}
-                className="my-3 max-h-[28rem] w-auto max-w-full rounded-xl border border-slate-200 object-contain"
-                loading="lazy"
-                referrerPolicy="no-referrer"
-                src={src}
-              />
-            );
-          },
+          // Trust images only through the structured guide contract. Markdown image syntax
+          // in an answer is represented as text and never becomes an <img> element.
+          img: ({ alt }) => <span>{alt ? `[Image: ${alt}]` : "[Image omitted]"}</span>,
           ol: ({ children, ...props }) => (
             <ol {...props} className="my-3 list-decimal space-y-1 pl-6">
               {children}
@@ -141,6 +123,13 @@ export function Message({ message }: { message: ChatMessage }) {
         ) : (
           <div className="whitespace-pre-wrap">{message.content}</div>
         )}
+        {assistant && message.guide && (
+          <Guide
+            guide={message.guide}
+            citations={message.citations}
+            citationAnchorPrefix={`citation-${message.id}`}
+          />
+        )}
         {assistant && message.citations && message.citations.length > 0 && (
           <div className="mt-4 border-t border-slate-200 pt-3">
             <p className="mb-2 text-xs font-bold uppercase tracking-wider text-slate-500">Sources</p>
@@ -160,7 +149,11 @@ export function Message({ message }: { message: ChatMessage }) {
                   </>
                 );
                 return (
-                  <li key={`${citation.id}-${citation.title}`} className="text-sm leading-5">
+                  <li
+                    key={`${citation.id}-${citation.title}`}
+                    id={`citation-${message.id}-${citation.id}`}
+                    className="scroll-mt-4 text-sm leading-5"
+                  >
                     {citation.url ? (
                       <a
                         className="inline-flex items-start gap-1 text-leaf hover:underline"

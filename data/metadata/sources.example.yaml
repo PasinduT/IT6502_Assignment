@@ -1,15 +1,39 @@
+# Minimal example of the production source-registry contract. Replace the
+# placeholder checksum after downloading and reviewing the official source.
+schema_version: 1
+allowed_hosts:
+  - www.ird.gov.lk
+  - ird.gov.lk
+  - eservices.ird.gov.lk
 sources:
-  - id: replace-with-stable-source-id
-    type: tax_document
-    title: Replace with the official document title
-    file: ../raw/tax-documents/replace-with-approved-document.pdf
+  - id: example-ird-source
+    title: Example official IRD source
     source_url: https://www.ird.gov.lk/
-    published_date: 2026-01-01
-    effective_from: 2026-04-01
-    effective_to:
-    tax_year: 2026/2027
-    document_version: "1"
+    local_file: ../raw/example/official-source.pdf
+    media_type: application/pdf
+    document_type: official_webpage
+    authority_level: official_webpage
+    authority_rank: 30
     jurisdiction: LK
+    language: en
+    status: current
+    review_status: draft
+    sha256: "0000000000000000000000000000000000000000000000000000000000000000"
+    final_url:
+    published_date:
+    effective_from:
+    effective_to:
+    tax_year:
+    document_version:
+    supersedes: []
+    superseded_by: []
+    tax_types: []
+    taxpayer_types: []
+    form_code:
+    workflow_ids: []
+    aliases: []
     tags:
       - example
-
+    notes: Replace all placeholder values before approving this source.
+    render_pages: []
+    exclusion_reason:

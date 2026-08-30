@@ -50,6 +50,7 @@ export default function App() {
         role: "assistant",
         content: response.answer,
         citations: response.citations,
+        guide: response.guide,
         createdAt: new Date().toISOString(),
       });
     } catch (caught) {
@@ -149,4 +150,3 @@ export default function App() {
     </div>
   );
 }
-
